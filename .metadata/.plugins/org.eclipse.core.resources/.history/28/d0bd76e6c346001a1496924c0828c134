@@ -1,0 +1,41 @@
+package com.skilldistillery.armadasite.entities;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "list")
+public class ListBuild {
+
+	//FIELDS
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String name;
+	
+	//RELATIONSHIPS
+	
+	@OneToMany(mappedBy = "list")
+	private List<ListFighter> fighters;
+	
+	@ManyToMany
+	@JoinTable(name = "list_ship", joinColumns = @JoinColumn(name = "list_id"), inverseJoinColumns = @JoinColumn(name = "ship_build_id"))
+	private List<ShipBuild> shipBuilds;
+	
+	@ManyToMany(mappedBy = "lists")
+	@JsonIgnore
+	private List<User> users;
+	
+}

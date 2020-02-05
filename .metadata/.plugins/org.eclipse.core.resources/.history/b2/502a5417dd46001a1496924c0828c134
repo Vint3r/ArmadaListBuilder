@@ -1,0 +1,82 @@
+package com.skilldistillery.armadasite.entities;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class ShipTest {
+	private static EntityManagerFactory emf;
+	private static EntityManager em;
+	private Ship ship;
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		emf = Persistence.createEntityManagerFactory("Armada");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		emf.close();
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		em = emf.createEntityManager();
+		ship = em.find(Ship.class, 1);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		ship = null;
+		em.close();
+	}
+
+	@Test
+	@DisplayName("Testing basic fields in Ship class")
+	void testFields() {
+		assertNotNull(ship);
+		assertTrue(ship.getName().equals("MC-75 Armored Cruiser"));
+		assertTrue(ship.getAlignment().equals("Rebel Alliance"));
+		assertTrue(ship.getBaseSize().equals("Large"));
+		assertEquals(ship.getAfBlack(), 1);
+		assertEquals(ship.getAfBlue(), 1);
+		assertEquals(ship.getAfRed(), 0);
+		assertEquals(ship.getCost(), 104);
+		assertEquals(ship.getCommand(), 3);
+		assertEquals(ship.getEngineering(), 4);
+		assertEquals(ship.getHull(), 9);
+		assertEquals(ship.getSquadron(), 3);
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between HullZone and Ship")
+	void testHullZoneRelationship() {
+		assertNotNull(ship.getHullZones());
+		assertEquals(ship.getHullZones().get(0).getAsBlue(), 3);
+		assertEquals(ship.getHullZones().get(1).getAsRed(), 3);
+		assertEquals(ship.getHullZones().get(2).getAsBlack(), 1);
+		assertTrue(ship.getHullZones().get(0).getLocation().equals("Forward"));
+		assertEquals(ship.getHullZones().get(1).getShields(), 3);
+		assertTrue(ship.getHullZones().get(2).getLocation().equals("Rear"));
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between Speed and Ship")
+	void testSpeedRelationship() {
+		assertNotNull(ship.getSpeed());
+		assertTrue(ship.getSpeed().getSpeedOne().equals("2"));
+		String ticks[] = ship.getSpeed().getSpeedTwo().split("-");
+		assertTrue(ticks[0].equals("1"));
+		assertTrue(ticks[1].contentEquals("1"));
+	}
+
+}

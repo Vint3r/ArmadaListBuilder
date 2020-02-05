@@ -1,0 +1,59 @@
+package com.skilldistillery.armadasite.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.armadasite.entities.ShipBuild;
+import com.skilldistillery.armadasite.repositories.ShipBuildRepository;
+
+@Service
+public class ShipBuildServiceImpl implements ShipBuildService {
+	
+	@Autowired
+	private ShipBuildRepository buildRepo;
+
+	@Override
+	public ShipBuild createShipBuild(ShipBuild ship) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ShipBuild updateShipBuild(ShipBuild ship) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteShipBuild(int id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public ShipBuild getShipBuildById(int id) {
+		ShipBuild build = null;
+		
+		Optional<ShipBuild> temp = buildRepo.findById(id);
+		
+		if(temp.isPresent()) {
+			build = temp.get();
+		}
+		
+		return build;
+	}
+
+	@Override
+	public List<ShipBuild> getAllShipBuilds() {
+		return null;
+	}
+
+	@Override
+	public List<ShipBuild> getAllShipBuildsByListId(int listId) {
+		return null;
+	}
+
+}

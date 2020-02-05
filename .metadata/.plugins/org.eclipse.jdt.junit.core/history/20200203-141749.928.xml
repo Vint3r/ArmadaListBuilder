@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HullZoneTest" project="ArmadaSiteJPA" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.skilldistillery.armadasite.entities.HullZoneTest" time="0.173" displayname="HullZoneTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.HullZoneTest]">
+    <testcase name="testShipRelationship" classname="com.skilldistillery.armadasite.entities.HullZoneTest" time="0.123" displayname="Testing relationship between HullZone and Ship" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.HullZoneTest]/[method:testShipRelationship()]"/>
+    <testcase name="testFields" classname="com.skilldistillery.armadasite.entities.HullZoneTest" time="0.05" displayname="Testing basic HullZone fields" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.HullZoneTest]/[method:testFields()]"/>
+  </testsuite>
+</testrun>

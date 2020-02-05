@@ -1,0 +1,28 @@
+package com.skilldistillery.armadasite.entities;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ship_defense_token")
+public class ShipDefenseToken {
+	
+	@EmbeddedId
+	private ShipDefenseTokenId id;
+	private int amount;
+	
+	@ManyToOne
+	@JoinColumn(name = "ship_id")
+	@MapsId(value = "shipId")
+	private Ship ship;
+	
+	@ManyToOne
+	@JoinColumn(name = "defense_token_id")
+	@MapsId(value = "defenseId")
+	private DefenseToken defenseToken;
+
+}

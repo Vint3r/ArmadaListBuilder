@@ -1,0 +1,17 @@
+package com.skilldistillery.armadasite.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class ShipDefenseTokenId implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	@Column(name = ship_id)
+	private int shipId;
+	@Column(name = defense_token_id)
+	private int defenseId;
+
+}

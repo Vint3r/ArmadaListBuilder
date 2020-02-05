@@ -1,0 +1,80 @@
+package com.skilldistillery.armadasite.entities;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class UpgradeTest {
+
+	private static EntityManagerFactory emf;
+	private static EntityManager em;
+	private Upgrade upgrade;
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		emf = Persistence.createEntityManagerFactory("Armada");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		emf.close();
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		em = emf.createEntityManager();
+		upgrade = em.find(Upgrade.class, 1);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		em.close();
+		upgrade = null;
+	}
+
+	@Test
+	@DisplayName("Testing basic fields for Upgrade")
+	void testUpgradeFields() {
+		assertNotNull(upgrade);
+		assertTrue(upgrade.getName().equals("Admiral Ackbar"));
+		assertEquals(upgrade.getCost(), 38);
+		assertTrue(upgrade.isUnique());
+		assertTrue(upgrade.getAlignment().equals("Rebel Alliance"));
+		assertTrue(upgrade.getDescription().contains("Before a friendly ship's attack step, it may choose to attack from only its"));
+		assertTrue(upgrade.getShipType().equals("None"));
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between Upgrade and ShipBuild")
+	void testShipBuildRelationship() {
+		assertNotNull(upgrade.getShipBuilds());
+		assertEquals(upgrade.getShipBuilds().get(0).getId(), 1);
+	}
+	
+	@Test
+	@Disabled
+	@DisplayName("Testing relationship between Upgrade and Image")
+	void testImageRelationship() {
+		assertNotNull(upgrade.getImage());
+		assertTrue(upgrade.getImage().getPhotoUrl().equals(""));
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between Upgrade and UpgradeType")
+	void testUpgradeTypeRelationship() {
+		assertNotNull(upgrade.getType());
+		assertTrue(upgrade.getType().getType().equals("Commander"));
+	}
+}

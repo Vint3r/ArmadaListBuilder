@@ -1,0 +1,27 @@
+package com.skilldistillery.armadasite.services;
+
+import java.util.List;
+
+import com.skilldistillery.armadasite.entities.Upgrade;
+
+public class UpgradeServiceImpl implements UpgradeService {
+
+	@Override
+	public List<Upgrade> getAllUpgrades() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Upgrade getUpgradeById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Upgrade> getUpgradeByType(int upTypeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,74 @@
+package com.skilldistillery.armadasite.entities;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class FighterTest {
+
+	private static EntityManagerFactory emf;
+	private static EntityManager em;
+	private Fighter fighter;
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		emf = Persistence.createEntityManagerFactory("Armada");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		emf.close();
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		em = emf.createEntityManager();
+		fighter = em.find(Fighter.class, 1);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		em.close();
+		fighter = null;
+	}
+
+	@Test
+	@DisplayName("Testing basic fields for Fighter class")
+	void testFields() {
+		assertNotNull(fighter);
+		assertTrue(fighter.getName().equals("Wedge Antillies"));
+		assertTrue(fighter.isUnique());
+		assertEquals(fighter.getHealth(), 5);
+		assertTrue(fighter.getSpecialAbility().equals("While attacking an activated squadron, you may add 2 blue dice to your attack pool."));
+	}
+	
+	@Test
+	@DisplayName("Testing mapping between keyword and fighter")
+	void testKeywordRelationship() {
+		assertNotNull(fighter.getKeywords());
+		assertTrue(fighter.getKeywords().get(0).getName().equals("Bomber"));
+		assertTrue(fighter.getKeywords().get(0).getDescription().equals("While attacking a ship, each of your crit icons adds 1 damage to the damage total and you can resolve a critical effect."));
+		assertTrue(fighter.getKeywords().get(1).getName().equals("Escort"));
+		assertTrue(fighter.getKeywords().get(1).getDescription().equals("Squadrons you are engaged with cannot attack squadrons without Escort unless performing a Counter attack."));
+	}
+	
+	@Test
+	@DisplayName("Testing mapping between Fighter and ListFighter/List")
+	void testListRelationship() {
+		assertNotNull(fighter.getLists().get(0));
+		assertTrue(fighter.getLists().size() > 0);
+		assertEquals(fighter.getLists().get(0).getAmount(), 1);
+		assertTrue(fighter.getLists().get(0).getList().getName().equals("First Build"));
+		fighter = em.find(Fighter.class, 2);
+		assertEquals(fighter.getLists().get(0).getAmount(), 5);
+	}
+}

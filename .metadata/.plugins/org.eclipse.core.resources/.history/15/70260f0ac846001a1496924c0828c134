@@ -1,0 +1,51 @@
+package com.skilldistillery.armadasite.entities;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class FighterDefenseTokenTest {
+
+	private static EntityManagerFactory emf;
+	private static EntityManager em;
+	private FighterDefenseToken fighterToken;
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		emf = Persistence.createEntityManagerFactory("GoodWork");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		emf.close();
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		em = emf.createEntityManager();
+		Fighter f = em.find(Fighter.class, 1);
+		DefenseToken dt = em.find(DefenseToken.class, 1);
+		FighterDefenseTokenId id = new FighterDefenseTokenId(f.getId(), dt.getId());
+		fighterToken = em.find(FighterDefenseToken.class, id);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		fighterToken = null;
+		em.close();
+	}
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FighterTest" project="ArmadaSiteJPA" tests="5" started="5" failures="0" errors="0" ignored="1">
+  <testsuite name="com.skilldistillery.armadasite.entities.FighterTest" time="0.266" displayname="FighterTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterTest]">
+    <testcase name="testImageRelationship" classname="com.skilldistillery.armadasite.entities.FighterTest" time="0.0" ignored="true" displayname="Testing mapping between Fighter and Image" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterTest]/[method:testImageRelationship()]"/>
+    <testcase name="testKeywordRelationship" classname="com.skilldistillery.armadasite.entities.FighterTest" time="0.15" displayname="Testing mapping between keyword and fighter" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterTest]/[method:testKeywordRelationship()]"/>
+    <testcase name="testDefenseToken" classname="com.skilldistillery.armadasite.entities.FighterTest" time="0.089" displayname="Testing mapping between Fighter and DefenseToken/FighterDefenseToken" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterTest]/[method:testDefenseToken()]"/>
+    <testcase name="testListRelationship" classname="com.skilldistillery.armadasite.entities.FighterTest" time="0.014" displayname="Testing mapping between Fighter and ListFighter/List" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterTest]/[method:testListRelationship()]"/>
+    <testcase name="testFields" classname="com.skilldistillery.armadasite.entities.FighterTest" time="0.013" displayname="Testing basic fields for Fighter class" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterTest]/[method:testFields()]"/>
+  </testsuite>
+</testrun>

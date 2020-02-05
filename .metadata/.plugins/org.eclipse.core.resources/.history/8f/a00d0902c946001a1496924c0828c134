@@ -1,0 +1,69 @@
+package com.skilldistillery.armadasite.entities;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class FighterDefenseTokenTest {
+
+	private static EntityManagerFactory emf;
+	private static EntityManager em;
+	private FighterDefenseToken fighterToken;
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		emf = Persistence.createEntityManagerFactory("GoodWork");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		emf.close();
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		em = emf.createEntityManager();
+		FighterDefenseTokenId id = new FighterDefenseTokenId(1, 1);
+		fighterToken = em.find(FighterDefenseToken.class, id);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		fighterToken = null;
+		em.close();
+	}
+
+	@Test
+	@DisplayName("Testing Basic fields for FighterDefenseToken")
+	void testFields() {
+		assertNotNull(fighterToken);
+		assertEquals(fighterToken.getAmount(), 2);
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between FighterDefenseToken and Fighter")
+	void testFighterRelationship() {
+		assertNotNull(fighterToken.getFighter());
+		assertTrue(fighterToken.getFighter().getName().contains("Wedge"));
+		assertTrue(fighterToken.getFighter().isUnique());
+		assertEquals(fighterToken.getFighter().getAfBlue(), 4);
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between FighterDefenseToken and DefenseToken")
+	void testDefenseTokenRelationship() {
+		assertNotNull(fighterToken.getDefenseToken());
+		assertTrue(fighterToken.getDefenseToken().getName().equals("Brace"));
+		assertTrue(fighterToken.getDefenseToken().getEffect().equals("After damage is totaled, the defender reduces the total by half, rounded up."));
+	}
+
+}

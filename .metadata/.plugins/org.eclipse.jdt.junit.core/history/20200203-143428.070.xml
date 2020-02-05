@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="KeywordTest" project="ArmadaSiteJPA" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.skilldistillery.armadasite.entities.KeywordTest" time="0.164" displayname="KeywordTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.KeywordTest]">
+    <testcase name="testKeywordRelationship" classname="com.skilldistillery.armadasite.entities.KeywordTest" time="0.111" displayname="Testing relationship between Fighter and Keyword" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.KeywordTest]/[method:testKeywordRelationship()]"/>
+    <testcase name="testFields" classname="com.skilldistillery.armadasite.entities.KeywordTest" time="0.053" displayname="Testing basic fields for Keyword class" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.KeywordTest]/[method:testFields()]"/>
+  </testsuite>
+</testrun>

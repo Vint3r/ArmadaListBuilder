@@ -1,0 +1,54 @@
+package com.skilldistillery.armadasite.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.armadasite.entities.Fighter;
+import com.skilldistillery.armadasite.repositories.FighterRepository;
+
+@Service
+public class FighterServiceImpl implements FighterService {
+
+	@Autowired
+	private FighterRepository fighterRepo;
+	
+	@Override
+	public List<Fighter> getAllFighters() {
+		return fighterRepo.findAll();
+	}
+
+	@Override
+	public Fighter getFighterById(int id) {
+		Fighter fighter = null;
+		
+		Optional<Fighter> temp = fighterRepo.findById(id);
+		
+		if(temp.isPresent()) {
+			fighter = temp.get();
+		}
+		
+		return fighter;
+	}
+
+	@Override
+	public List<Fighter> getAllFightersByAlign(String align) {
+		String keyword = "%" + align + "%";
+		return fighterRepo.findByAlignmentLike(keyword);
+	}
+
+	@Override
+	public List<Fighter> getAllFightersByName(String keyword) {
+		String nameModel = "%" + keyword + "%";
+		return fighterRepo.findByNameLikeOrModelLike(nameModel);
+	}
+
+	@Override
+	public List<Fighter> getFightersByCardKey(int keyId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

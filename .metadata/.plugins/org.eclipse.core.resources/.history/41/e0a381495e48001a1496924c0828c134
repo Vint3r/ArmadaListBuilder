@@ -1,0 +1,24 @@
+package com.skilldistillery.armadasite.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.armadasite.entities.UpgradeType;
+
+@Service
+public class UpgradeTypeServiceImpl implements UpgradeTypeService {
+
+	@Override
+	public List<UpgradeType> getAllUpgradeTypes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UpgradeType getUpgradeTypeById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

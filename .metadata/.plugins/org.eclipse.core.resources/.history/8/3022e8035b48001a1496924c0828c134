@@ -1,0 +1,331 @@
+package com.skilldistillery.armadasite.entities;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Ship {
+	
+	//FIELDS
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column(name = "af_red")
+	private int afRed;
+	@Column(name = "af_blue")
+	private int afBlue;
+	@Column(name = "af_black")
+	private int afBlack;
+	private int command;
+	private int cost;
+	private int engineering;
+	private int hull;
+	private int squadron;
+	private String alignment;
+	@Column(name = "base_size")
+	private String baseSize;
+	private String name;
+	
+	//RELATIONSHIPS
+	@ManyToMany
+	@JoinTable(name = "ship_hull_zone", joinColumns = @JoinColumn(name = "ship_id"), inverseJoinColumns = @JoinColumn(name = "hull_zone_id"))
+	private List<HullZone> hullZones;
+	
+	@OneToOne
+	@JoinColumn(name = "speed_id")
+	private Speed speed;
+	
+	@OneToMany(mappedBy = "ship")
+	private List<ShipDefenseToken> defenseTokens;
+	
+	@ManyToMany
+	@JoinTable(name = "ship_image", joinColumns = @JoinColumn(name = "ship_id"), inverseJoinColumns = @JoinColumn(name = "image_id"))
+	private List<Image> images;
+	
+	@OneToMany(mappedBy = "ship")
+	private List<ShipUpgradeType> upgradeTypes;
+	
+	//CONSTRUCTORS
+	
+	public Ship() {
+		super();
+	}
+
+	public Ship(int id, int afRed, int afBlue, int afBlack, int command, int cost, int engineering, int hull,
+			int squadron, String alignment, String baseSize, String name, List<HullZone> hullZones, Speed speed,
+			List<ShipDefenseToken> defenseTokens, List<Image> images, List<UpgradeType> upgradeTypes) {
+		super();
+		this.id = id;
+		this.afRed = afRed;
+		this.afBlue = afBlue;
+		this.afBlack = afBlack;
+		this.command = command;
+		this.cost = cost;
+		this.engineering = engineering;
+		this.hull = hull;
+		this.squadron = squadron;
+		this.alignment = alignment;
+		this.baseSize = baseSize;
+		this.name = name;
+		this.hullZones = hullZones;
+		this.speed = speed;
+		this.defenseTokens = defenseTokens;
+		this.images = images;
+		this.upgradeTypes = upgradeTypes;
+	}
+
+
+
+	//METHODS
+
+	public int getId() {
+		return id;
+	}
+
+	public List<UpgradeType> getUpgradeTypes() {
+		return upgradeTypes;
+	}
+
+	public void setUpgradeTypes(List<UpgradeType> upgradeTypes) {
+		this.upgradeTypes = upgradeTypes;
+	}
+
+	public List<HullZone> getHullZones() {
+		return hullZones;
+	}
+
+	public void setHullZones(List<HullZone> hullZones) {
+		this.hullZones = hullZones;
+	}
+
+	public List<ShipDefenseToken> getDefenseTokens() {
+		return defenseTokens;
+	}
+
+	public void setDefenseTokens(List<ShipDefenseToken> defenseTokens) {
+		this.defenseTokens = defenseTokens;
+	}
+
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+
+	public Speed getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(Speed speed) {
+		this.speed = speed;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getHull() {
+		return hull;
+	}
+
+	public void setHull(int hull) {
+		this.hull = hull;
+	}
+
+	public int getCommand() {
+		return command;
+	}
+
+	public void setCommand(int command) {
+		this.command = command;
+	}
+
+	public int getSquadron() {
+		return squadron;
+	}
+
+	public void setSquadron(int squadron) {
+		this.squadron = squadron;
+	}
+
+	public int getEngineering() {
+		return engineering;
+	}
+
+	public void setEngineering(int engineering) {
+		this.engineering = engineering;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+	public String getAlignment() {
+		return alignment;
+	}
+
+	public void setAlignment(String alignment) {
+		this.alignment = alignment;
+	}
+
+	public String getBaseSize() {
+		return baseSize;
+	}
+
+	public void setBaseSize(String baseSize) {
+		this.baseSize = baseSize;
+	}
+
+	public int getAfRed() {
+		return afRed;
+	}
+
+	public void setAfRed(int afRed) {
+		this.afRed = afRed;
+	}
+
+	public int getAfBlue() {
+		return afBlue;
+	}
+
+	public void setAfBlue(int afBlue) {
+		this.afBlue = afBlue;
+	}
+
+	public int getAfBlack() {
+		return afBlack;
+	}
+
+	public void setAfBlack(int afBlack) {
+		this.afBlack = afBlack;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + afBlack;
+		result = prime * result + afBlue;
+		result = prime * result + afRed;
+		result = prime * result + ((alignment == null) ? 0 : alignment.hashCode());
+		result = prime * result + ((baseSize == null) ? 0 : baseSize.hashCode());
+		result = prime * result + command;
+		result = prime * result + cost;
+		result = prime * result + ((defenseTokens == null) ? 0 : defenseTokens.hashCode());
+		result = prime * result + engineering;
+		result = prime * result + hull;
+		result = prime * result + ((hullZones == null) ? 0 : hullZones.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((images == null) ? 0 : images.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((speed == null) ? 0 : speed.hashCode());
+		result = prime * result + squadron;
+		result = prime * result + ((upgradeTypes == null) ? 0 : upgradeTypes.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ship other = (Ship) obj;
+		if (afBlack != other.afBlack)
+			return false;
+		if (afBlue != other.afBlue)
+			return false;
+		if (afRed != other.afRed)
+			return false;
+		if (alignment == null) {
+			if (other.alignment != null)
+				return false;
+		} else if (!alignment.equals(other.alignment))
+			return false;
+		if (baseSize == null) {
+			if (other.baseSize != null)
+				return false;
+		} else if (!baseSize.equals(other.baseSize))
+			return false;
+		if (command != other.command)
+			return false;
+		if (cost != other.cost)
+			return false;
+		if (defenseTokens == null) {
+			if (other.defenseTokens != null)
+				return false;
+		} else if (!defenseTokens.equals(other.defenseTokens))
+			return false;
+		if (engineering != other.engineering)
+			return false;
+		if (hull != other.hull)
+			return false;
+		if (hullZones == null) {
+			if (other.hullZones != null)
+				return false;
+		} else if (!hullZones.equals(other.hullZones))
+			return false;
+		if (id != other.id)
+			return false;
+		if (images == null) {
+			if (other.images != null)
+				return false;
+		} else if (!images.equals(other.images))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (speed == null) {
+			if (other.speed != null)
+				return false;
+		} else if (!speed.equals(other.speed))
+			return false;
+		if (squadron != other.squadron)
+			return false;
+		if (upgradeTypes == null) {
+			if (other.upgradeTypes != null)
+				return false;
+		} else if (!upgradeTypes.equals(other.upgradeTypes))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Ship [id=" + id + ", name=" + name + ", hull=" + hull + ", command=" + command + ", squadron="
+				+ squadron + ", engineering=" + engineering + ", cost=" + cost + ", alignment=" + alignment
+				+ ", baseSize=" + baseSize + ", afRed=" + afRed + ", afBlue=" + afBlue + ", afBlack=" + afBlack + "]";
+	}
+	
+	
+
+}

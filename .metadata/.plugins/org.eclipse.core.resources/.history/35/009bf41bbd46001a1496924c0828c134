@@ -1,0 +1,87 @@
+package com.skilldistillery.armadasite.entities;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class DefenseTokenTest {
+
+	private static EntityManagerFactory emf;
+	private static EntityManager em;
+	private DefenseToken token;
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		emf = Persistence.createEntityManagerFactory("Armada");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		emf.close();
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		em = emf.createEntityManager();
+		token = em.find(DefenseToken.class, 1);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	@DisplayName("Testing basic fields in entity")
+	void testFields() {
+		assertNotNull(token);
+		assertEquals(token.getId(), 1);
+		assertTrue(token.getName().equals("Brace"));
+		assertTrue(token.getEffect().equals("After damage is totaled, the defender reduces the total by half, rounded up."));
+	}
+	
+	@Test
+	@DisplayName("Testing mapping for capital ship relationship")
+	void testShipRelationship() {
+		assertNotNull(token.getShips().get(0).getShip());
+		assertTrue(token.getShips().get(0).getShip().getName().equals("MC-75 Armored Cruiser"));
+		assertEquals(token.getShips().get(0).getShip().getCost(), 104);
+		assertEquals(token.getShips().get(0).getAmount(), 1);
+		assertTrue(token.getShips().get(1).getShip().getName().equals("MC-75 Ordnance Cruiser"));
+		assertEquals(token.getShips().get(1).getAmount(), 1);
+		assertEquals(token.getShips().get(1).getShip().getCost(), 100);
+	}
+	
+	@Test
+	@DisplayName("Testing mapping for fighters relationship")
+	void testFighterRelationship() {
+		assertNotNull(token.getFighters().get(0).getFighter());
+		assertTrue(token.getFighters().get(0).getFighter().getName().equals("Wedge Antillies"));
+		assertEquals(token.getFighters().get(0).getFighter().getCost(), 19);
+		assertEquals(token.getFighters().get(0).getAmount(), 2);
+		assertNotNull(token.getFighters().get(1).getFighter());
+		assertTrue(token.getFighters().get(1).getFighter().getName().equals("Biggs Darklighter"));
+		assertEquals(token.getFighters().get(0).getFighter().getCost(), 19);
+		assertEquals(token.getFighters().get(1).getAmount(), 2);
+		
+	}
+	@Disabled
+	@Test
+	@DisplayName("Testing mapping between Image and DefenseToken")
+	void testImageRelationship() {
+		assertNotNull(token.getImage());
+//		assertTrue(token.getImage().getPhotoUrl().equals("")));
+	}
+
+}

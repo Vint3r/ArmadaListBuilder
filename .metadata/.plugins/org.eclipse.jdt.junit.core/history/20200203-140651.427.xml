@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FighterDefenseTokenTest" project="ArmadaSiteJPA" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="com.skilldistillery.armadasite.entities.FighterDefenseTokenTest" time="0.117" displayname="FighterDefenseTokenTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterDefenseTokenTest]">
+    <testcase name="testDefenseTokenRelationship" classname="com.skilldistillery.armadasite.entities.FighterDefenseTokenTest" time="0.044" displayname="Testing relationship between FighterDefenseToken and DefenseToken" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterDefenseTokenTest]/[method:testDefenseTokenRelationship()]"/>
+    <testcase name="testFighterRelationship" classname="com.skilldistillery.armadasite.entities.FighterDefenseTokenTest" time="0.007" displayname="Testing relationship between FighterDefenseToken and Fighter" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterDefenseTokenTest]/[method:testFighterRelationship()]"/>
+    <testcase name="testFields" classname="com.skilldistillery.armadasite.entities.FighterDefenseTokenTest" time="0.066" displayname="Testing Basic fields for FighterDefenseToken" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.FighterDefenseTokenTest]/[method:testFields()]"/>
+  </testsuite>
+</testrun>

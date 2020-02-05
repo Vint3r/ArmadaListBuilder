@@ -1,0 +1,16 @@
+package com.skilldistillery.armadasite.services;
+
+import java.util.List;
+
+import com.skilldistillery.armadasite.entities.ListBuild;
+
+public interface ListBuildService {
+	
+	public ListBuild createList(ListBuild list);
+	public ListBuild updateList(ListBuild list);
+	public void deleteList(ListBuild list);
+	public List<ListBuild> getAllLists();
+	public List<ListBuild> getAllListsByUser(int userId);
+	public ListBuild getSingleListByUser(int listId, int userId);
+	public ListBuild getSingleList(int id);
+}

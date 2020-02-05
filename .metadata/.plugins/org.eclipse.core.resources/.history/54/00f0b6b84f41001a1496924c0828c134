@@ -1,0 +1,7 @@
+package com.skilldistillery.armadasite.entities;
+
+import java.io.Serializable;
+
+public class FighterDefenseTokenId implements Serializable {
+
+}

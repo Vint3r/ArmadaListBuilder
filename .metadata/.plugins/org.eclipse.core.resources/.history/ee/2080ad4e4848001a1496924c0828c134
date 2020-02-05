@@ -1,0 +1,39 @@
+package com.skilldistillery.armadasite.services;
+
+import java.util.List;
+
+import com.skilldistillery.armadasite.entities.Fighter;
+
+public class FighterServiceImpl implements FighterService {
+
+	@Override
+	public List<Fighter> getAllFighters() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Fighter getFighterById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Fighter> getAllFightersByAlign(String align) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Fighter> getAllFightersByName(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Fighter> getFightersByCardKey(int keyId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

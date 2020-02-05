@@ -1,0 +1,72 @@
+package com.skilldistillery.armadasite.entities;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+class ShipBuildTest {
+
+	private static EntityManagerFactory emf;
+	private static EntityManager em;
+	private ShipBuild shipBuild;
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		emf = Persistence.createEntityManagerFactory("Armada");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		emf.close();
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		em = emf.createEntityManager();
+		shipBuild = em.find(ShipBuild.class, 1);
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		em.close();
+		shipBuild = null;
+	}
+
+	@Test
+	@DisplayName("Testing relationship between ShipBuild and Ship")
+	void testShipRelationship() {
+		assertNotNull(shipBuild);
+		assertNotNull(shipBuild.getShip());
+		assertTrue(shipBuild.getShip().getName().equals("MC-75 Armored Cruiser"));
+		assertEquals(shipBuild.getShip().getHull(), 9);
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between ShipBuild and Upgrade")
+	void testUpgradeRelationship() {
+		assertNotNull(shipBuild.getUpgrades());
+		assertNotNull(shipBuild.getUpgrades().get(0));
+		assertTrue(shipBuild.getUpgrades().get(0).getName().equals("Admiral Ackbar"));
+		assertTrue(shipBuild.getUpgrades().size() == 1);
+		assertTrue(shipBuild.getUpgrades().get(0).getAlignment().equals("Rebel Alliance"));
+		assertTrue(shipBuild.getUpgrades().get(0).getShipType().equals("None"));
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between ShipBuild and ListBuild")
+	void testListBuildRelationship() {
+		Upgrade upgrade = em.find(Upgrade.class, 1);
+		assertNotNull(shipBuild.getLists());
+		assertTrue(shipBuild.getLists().get(0).getName().equals("First Build"));
+	}
+
+}

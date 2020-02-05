@@ -1,0 +1,11 @@
+package com.skilldistillery.armadasite.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class ListFighterId implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+}

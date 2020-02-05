@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SpeedTest" project="ArmadaSiteJPA" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.skilldistillery.armadasite.entities.SpeedTest" time="0.191" displayname="SpeedTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.SpeedTest]">
+    <testcase name="testFields" classname="com.skilldistillery.armadasite.entities.SpeedTest" time="0.191" displayname="Testing basic fields for Speed class" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.SpeedTest]/[method:testFields()]"/>
+  </testsuite>
+</testrun>

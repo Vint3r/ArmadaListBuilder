@@ -1,0 +1,14 @@
+package com.skilldistillery.armadasite.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.skilldistillery.armadasite.entities.Fighter;
+
+public interface FighterRepository extends JpaRepository<Fighter, Integer> {
+
+	public List<Fighter> findByAlignmentLike(String keyword);
+	public List<Fighter> findByNameLikeOrModelLike(String keyword);
+	public List<Fighter> findByKeywordsId(int id);
+}

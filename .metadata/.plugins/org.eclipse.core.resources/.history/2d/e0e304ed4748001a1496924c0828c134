@@ -1,0 +1,5 @@
+package com.skilldistillery.armadasite.services;
+
+public interface ShipBuildService {
+
+}

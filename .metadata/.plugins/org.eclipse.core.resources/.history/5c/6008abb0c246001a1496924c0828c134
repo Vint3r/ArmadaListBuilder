@@ -1,0 +1,32 @@
+package com.skilldistillery.armadasite.entities;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "list_fighter")
+public class ListFighter {
+	
+	//FIELDS
+	
+	@EmbeddedId
+	private ListFighterId id;
+	private int amount;
+	
+	//RELATIONSHIPS
+	
+	@ManyToOne
+	@JoinColumn(name = "fighter_id")
+	@MapsId(value = "fighterId")
+	private Fighter fighter;
+	
+	@ManyToOne
+	@JoinColumn(name = "list_id")
+	@MapsId(value = "listId")
+	private ListBuild list;
+
+}
