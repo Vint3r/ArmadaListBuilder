@@ -28,7 +28,7 @@ public class ShipBuildServiceImpl implements ShipBuildService {
 	}
 
 	@Override
-	public ShipBuild updateShipBuild(ShipBuild ship) {
+	public ShipBuild updateShipBuild(int id, ShipBuild ship) {
 		ShipBuild toUpdate = null;
 
 		Optional<ShipBuild> temp = buildRepo.findById(ship.getId());

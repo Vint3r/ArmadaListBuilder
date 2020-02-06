@@ -7,7 +7,7 @@ import com.skilldistillery.armadasite.entities.ShipBuild;
 public interface ShipBuildService {
 
 	public ShipBuild createShipBuild(ShipBuild ship);
-	public ShipBuild updateShipBuild(ShipBuild ship);
+	public ShipBuild updateShipBuild(int id, ShipBuild ship);
 	public boolean deleteShipBuild(int id);
 	public ShipBuild getShipBuildById(int id);
 	public List<ShipBuild> getAllShipBuilds();
