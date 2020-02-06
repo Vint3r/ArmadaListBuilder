@@ -14,23 +14,74 @@ public class ListBuildServiceImpl implements ListBuildService {
 
 	@Autowired
 	private ListBuildRepository listRepo;
-	
+
 	@Override
 	public ListBuild createList(ListBuild list) {
-		// TODO Auto-generated method stub
-		return null;
+		ListBuild result = null;
+		try {
+			result = listRepo.saveAndFlush(list);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
 	}
 
 	@Override
 	public ListBuild updateList(ListBuild list) {
-		// TODO Auto-generated method stub
-		return null;
+		ListBuild toUpdate = null;
+
+		Optional<ListBuild> toUpdateTemp = listRepo.findById(list.getId());
+		if (toUpdateTemp.isPresent()) {
+			toUpdate = toUpdateTemp.get();
+
+			toUpdate.setActualCost(list.getActualCost());
+			toUpdate.setPointSway(list.getPointSway());
+
+			if (list.getFighters() != null && list.getFighters().size() > 0) {
+				toUpdate.setFighters(list.getFighters());
+			}
+
+			if (list.getShipBuilds() != null && list.getShipBuilds().size() > 0) {
+				toUpdate.setShipBuilds(list.getShipBuilds());
+			}
+
+			if (list.getDesiredCost() > 0) {
+				toUpdate.setDesiredCost(list.getDesiredCost());
+			}
+
+			if (list.getName() != null) {
+				toUpdate.setName(list.getName());
+			}
+
+		}
+
+		listRepo.saveAndFlush(toUpdate);
+		return toUpdate;
 	}
 
 	@Override
-	public void deleteList(ListBuild list) {
-		// TODO Auto-generated method stub
+	public boolean deleteList(int id) {
+		boolean success = false;
+		ListBuild listDel = null;
 
+		Optional<ListBuild> temp = listRepo.findById(id);
+
+		if (temp.isPresent()) {
+			listDel = temp.get();
+
+			try {
+				listRepo.delete(listDel);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return success;
+			}
+
+			success = true;
+		}
+
+		return success;
 	}
 
 	@Override
@@ -47,27 +98,27 @@ public class ListBuildServiceImpl implements ListBuildService {
 	public ListBuild getSingleListByUser(int listId, int userId) {
 		List<ListBuild> lists = listRepo.findByUsersId(userId);
 		ListBuild result = null;
-		
+
 		for (ListBuild listBuild : lists) {
-			if(listBuild.getId() == listId) {
+			if (listBuild.getId() == listId) {
 				result = listBuild;
 				break;
 			}
 		}
-		
+
 		return result;
 	}
 
 	@Override
 	public ListBuild getListById(int id) {
 		ListBuild result = null;
-		
+
 		Optional<ListBuild> temp = listRepo.findById(id);
-		
-		if(temp.isPresent()) {
+
+		if (temp.isPresent()) {
 			result = temp.get();
 		}
-		
+
 		return result;
 	}
 

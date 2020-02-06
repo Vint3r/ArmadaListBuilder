@@ -1,0 +1,35 @@
+package com.skilldistillery.armadasite.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.armadasite.entities.Image;
+import com.skilldistillery.armadasite.repositories.ImageRepository;
+
+@Service
+public class ImageServiceImpl implements ImageService {
+
+	@Autowired
+	private ImageRepository imgRepo;
+	
+	@Override
+	public List<Image> getAllImages() {
+		return imgRepo.findAll();
+	}
+
+	@Override
+	public Image getImageById(int id) {
+		Image img = null;
+		
+		Optional<Image> temp = imgRepo.findById(id);
+		
+		if(temp.isPresent()) {
+			img = temp.get();
+		}
+		
+		return img;
+	}
+}

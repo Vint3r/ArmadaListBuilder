@@ -11,14 +11,20 @@ import com.skilldistillery.armadasite.repositories.ShipBuildRepository;
 
 @Service
 public class ShipBuildServiceImpl implements ShipBuildService {
-	
+
 	@Autowired
 	private ShipBuildRepository buildRepo;
 
 	@Override
 	public ShipBuild createShipBuild(ShipBuild ship) {
-		// TODO Auto-generated method stub
-		return null;
+		ShipBuild result = null;
+		try {
+			result = buildRepo.saveAndFlush(ship);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
@@ -36,13 +42,13 @@ public class ShipBuildServiceImpl implements ShipBuildService {
 	@Override
 	public ShipBuild getShipBuildById(int id) {
 		ShipBuild build = null;
-		
+
 		Optional<ShipBuild> temp = buildRepo.findById(id);
-		
-		if(temp.isPresent()) {
+
+		if (temp.isPresent()) {
 			build = temp.get();
 		}
-		
+
 		return build;
 	}
 

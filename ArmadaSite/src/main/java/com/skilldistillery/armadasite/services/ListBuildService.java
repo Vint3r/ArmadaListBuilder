@@ -8,7 +8,7 @@ public interface ListBuildService {
 	
 	public ListBuild createList(ListBuild list);
 	public ListBuild updateList(ListBuild list);
-	public void deleteList(ListBuild list);
+	public boolean deleteList(int id);
 	public List<ListBuild> getAllLists();
 	public List<ListBuild> getAllListsByUser(int userId);
 	public ListBuild getSingleListByUser(int listId, int userId);
