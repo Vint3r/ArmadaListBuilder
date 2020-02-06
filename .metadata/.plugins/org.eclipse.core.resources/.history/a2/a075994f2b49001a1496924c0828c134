@@ -7,7 +7,7 @@ import com.skilldistillery.armadasite.entities.ListBuild;
 public interface ListBuildService {
 	
 	public ListBuild createList(ListBuild list);
-	public ListBuild updateList(int id, ListBuild list);
+	public ListBuild updateList(ListBuild list);
 	public boolean deleteList(int id);
 	public List<ListBuild> getAllLists();
 	public List<ListBuild> getAllListsByUser(int userId);

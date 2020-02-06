@@ -120,18 +120,12 @@ public class ListBuildController {
 		try {
 			created = listSvc.createList(list);
 
-			if (created != null) {
-				response.setStatus(201);
-				StringBuffer url = request.getRequestURL();
+			response.setStatus(201);
+			StringBuffer url = request.getRequestURL();
 
-				url.append("/").append(created.getId());
+			url.append("/").append(created.getId());
 
-				response.addHeader("Location", url.toString());
-			} else {
-				response.setStatus(404);
-				return null;
-			}
-			
+			response.addHeader("Location", url.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.setStatus(400);

@@ -131,7 +131,6 @@ public class ListBuildController {
 				response.setStatus(404);
 				return null;
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.setStatus(400);
