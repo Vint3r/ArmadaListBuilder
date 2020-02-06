@@ -29,14 +29,52 @@ public class ShipBuildServiceImpl implements ShipBuildService {
 
 	@Override
 	public ShipBuild updateShipBuild(ShipBuild ship) {
-		// TODO Auto-generated method stub
-		return null;
+		ShipBuild toUpdate = null;
+
+		Optional<ShipBuild> temp = buildRepo.findById(ship.getId());
+		if (temp.isPresent()) {
+			toUpdate = temp.get();
+
+			toUpdate.setUpgrades(ship.getUpgrades());
+			
+			if (ship.getShip() != null) {
+				toUpdate.setShip(ship.getShip());
+			}
+
+			if (ship.getLists() != null && ship.getLists().size() > 0) {
+				toUpdate.setLists(ship.getLists());
+				;
+			}
+
+			if (!toUpdate.equals(ship)) {
+				buildRepo.saveAndFlush(toUpdate);
+			}
+			
+		}
+
+		return toUpdate;
 	}
 
 	@Override
-	public void deleteShipBuild(int id) {
-		// TODO Auto-generated method stub
+	public boolean deleteShipBuild(int id) {
+		ShipBuild toDel = null;
+		boolean success = false;
 
+		Optional<ShipBuild> temp = buildRepo.findById(id);
+		if (temp.isPresent()) {
+			toDel = temp.get();
+
+			try {
+				buildRepo.delete(toDel);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return success;
+			}
+
+			success = true;
+		}
+
+		return success;
 	}
 
 	@Override

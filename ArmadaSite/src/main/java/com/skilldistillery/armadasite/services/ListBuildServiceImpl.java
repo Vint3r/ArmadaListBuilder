@@ -55,9 +55,9 @@ public class ListBuildServiceImpl implements ListBuildService {
 				toUpdate.setName(list.getName());
 			}
 
+			listRepo.saveAndFlush(toUpdate);
 		}
 
-		listRepo.saveAndFlush(toUpdate);
 		return toUpdate;
 	}
 

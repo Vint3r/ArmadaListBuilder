@@ -8,7 +8,7 @@ public interface ShipBuildService {
 
 	public ShipBuild createShipBuild(ShipBuild ship);
 	public ShipBuild updateShipBuild(ShipBuild ship);
-	public void deleteShipBuild(int id);
+	public boolean deleteShipBuild(int id);
 	public ShipBuild getShipBuildById(int id);
 	public List<ShipBuild> getAllShipBuilds();
 	public List<ShipBuild> getAllShipBuildsByListId(int listId);
