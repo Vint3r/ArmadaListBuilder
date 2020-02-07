@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ListFighterTest" project="ArmadaSiteJPA" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.armadasite.entities.ListFighterTest" time="0.189" displayname="ListFighterTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ListFighterTest]">
-    <testcase name="testListBuildRelationship" classname="com.skilldistillery.armadasite.entities.ListFighterTest" time="0.125" displayname="Testing relationship between ListFighter and ListBuild" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ListFighterTest]/[method:testListBuildRelationship()]"/>
-    <testcase name="testFighterRelationship" classname="com.skilldistillery.armadasite.entities.ListFighterTest" time="0.006" displayname="Testing relationship between ListFighter and Fighter" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ListFighterTest]/[method:testFighterRelationship()]"/>
-    <testcase name="testFields" classname="com.skilldistillery.armadasite.entities.ListFighterTest" time="0.058" displayname="Testing basic ListFighter fields" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ListFighterTest]/[method:testFields()]"/>
-  </testsuite>
-</testrun>

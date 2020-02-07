@@ -33,11 +33,12 @@ public class ListBuildController {
 	}
 
 	@GetMapping("{id}")
-	private ListBuild show(@PathVariable int id, HttpServletResponse response) {
+	private ListBuild show(@PathVariable String id, HttpServletResponse response) {
 		ListBuild list = null;
 
 		try {
-			list = listSvc.getListById(id);
+			int listId = Integer.parseInt(id);
+			list = listSvc.getListById(listId);
 
 			if (list == null) {
 				response.setStatus(404);
@@ -53,11 +54,12 @@ public class ListBuildController {
 	}
 
 	@GetMapping("user/{uid}")
-	private List<ListBuild> indexListsForUser(@PathVariable int uid, HttpServletResponse response) {
+	private List<ListBuild> indexListsForUser(@PathVariable String uid, HttpServletResponse response) {
 		List<ListBuild> lists = null;
 
 		try {
-			lists = listSvc.getAllListsByUser(uid);
+			int userId = Integer.parseInt(uid);
+			lists = listSvc.getAllListsByUser(userId);
 
 			if (lists == null) {
 				response.setStatus(404);
@@ -73,11 +75,13 @@ public class ListBuildController {
 	}
 
 	@GetMapping("user/{uid}/{lid}")
-	private ListBuild showSingleForUser(@PathVariable int uid, @PathVariable int lid, HttpServletResponse response) {
+	private ListBuild showSingleForUser(@PathVariable String uid, @PathVariable String lid, HttpServletResponse response) {
 		ListBuild list = null;
 
 		try {
-			list = listSvc.getSingleListByUser(lid, uid);
+			int userId = Integer.parseInt(uid);
+			int listId = Integer.parseInt(lid);
+			list = listSvc.getSingleListByUser(listId, userId);
 
 			if (list == null) {
 				response.setStatus(404);
@@ -93,11 +97,12 @@ public class ListBuildController {
 	}
 
 	@PostMapping("update/{id}")
-	private ListBuild updateList(@PathVariable int id, @RequestBody ListBuild list, HttpServletResponse response) {
+	private ListBuild updateList(@PathVariable String id, @RequestBody ListBuild list, HttpServletResponse response) {
 		ListBuild updatedList = null;
 
 		try {
-			updatedList = listSvc.updateList(id, list);
+			int listId = Integer.parseInt(id);
+			updatedList = listSvc.updateList(listId, list);
 
 			if (updatedList == null) {
 				response.setStatus(404);
@@ -142,9 +147,11 @@ public class ListBuildController {
 	}
 
 	@DeleteMapping("delete/{id}")
-	private void deleteList(@PathVariable int id, HttpServletResponse response) {
+	private void deleteList(@PathVariable String id, HttpServletResponse response) {
 		try {
-			if (listSvc.deleteList(id)) {
+			int listId = Integer.parseInt(id);
+			
+			if (listSvc.deleteList(listId)) {
 				response.setStatus(204);
 			} else {
 				response.setStatus(404);

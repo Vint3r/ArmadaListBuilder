@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "ship_build")
@@ -28,6 +29,7 @@ public class ShipBuild {
 
 	@OneToOne
 	@JoinColumn(name = "ship_id")
+	@JsonIgnoreProperties({"defenseTokens", "upgradeTypes"})
 	private Ship ship;
 
 	@ManyToMany

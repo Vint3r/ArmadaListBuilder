@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "defense_token")
 public class DefenseToken {
@@ -26,6 +28,7 @@ public class DefenseToken {
 	//RELATIONSHIPS
 	
 	@OneToMany(mappedBy = "defenseToken")
+	@JsonIgnore
 	private List<ShipDefenseToken> ships;
 	
 	@OneToOne
@@ -33,6 +36,7 @@ public class DefenseToken {
 	private Image image;
 	
 	@OneToMany(mappedBy = "defenseToken")
+	@JsonIgnore
 	private List<FighterDefenseToken> fighters;
 	
 	//CONSTRUCTORS

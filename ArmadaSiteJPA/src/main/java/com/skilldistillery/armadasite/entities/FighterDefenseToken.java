@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "fighter_defense_token")
 public class FighterDefenseToken {
@@ -23,6 +25,7 @@ public class FighterDefenseToken {
 	@ManyToOne(cascade = {CascadeType.PERSIST})
 	@JoinColumn(name = "fighter_id")
 	@MapsId(value = "fighterId")
+	@JsonIgnore
 	private Fighter fighter;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST})

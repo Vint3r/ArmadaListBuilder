@@ -42,7 +42,7 @@ public class FighterServiceImpl implements FighterService {
 	@Override
 	public List<Fighter> getAllFightersByName(String keyword) {
 		String nameModel = "%" + keyword + "%";
-		return fighterRepo.findByNameLikeOrModelLikeOrderByCost(nameModel);
+		return fighterRepo.findByNameLikeOrModelLikeOrderByCost(nameModel, nameModel);
 	}
 
 	@Override

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ShipDefenseTokenTest" project="ArmadaSiteJPA" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.armadasite.entities.ShipDefenseTokenTest" time="0.188" displayname="ShipDefenseTokenTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ShipDefenseTokenTest]">
-    <testcase name="testShipRelationship" classname="com.skilldistillery.armadasite.entities.ShipDefenseTokenTest" time="0.124" displayname="Testing relationship between ShipDefenseToken and Ship" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ShipDefenseTokenTest]/[method:testShipRelationship()]"/>
-    <testcase name="testDefenseTokenRelationship" classname="com.skilldistillery.armadasite.entities.ShipDefenseTokenTest" time="0.006" displayname="Testing relationship between ShipDefenseToken and DefenseToken" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ShipDefenseTokenTest]/[method:testDefenseTokenRelationship()]"/>
-    <testcase name="testFields" classname="com.skilldistillery.armadasite.entities.ShipDefenseTokenTest" time="0.058" displayname="Testing basic fields for ShipDefenseToken" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ShipDefenseTokenTest]/[method:testFields()]"/>
-  </testsuite>
-</testrun>

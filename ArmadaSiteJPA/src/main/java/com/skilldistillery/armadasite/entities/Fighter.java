@@ -15,8 +15,6 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import com.skilldistillery.armadasite.entities.Keyword;
-
 @Entity
 public class Fighter {
 
@@ -55,6 +53,7 @@ public class Fighter {
 	private List<Keyword> keywords;
 
 	@OneToMany(mappedBy = "fighter")
+	@JsonIgnore
 	private List<ListFighter> lists;
 
 	@OneToOne
@@ -71,7 +70,7 @@ public class Fighter {
 	}
 
 	public Fighter(int id, String name, boolean unique, int health, int movement, int cost, String specialAbility,
-			String alignment, String model, int rating, int afRed, int afBlue, int afBlack, int asRed, int asBlue,
+			String alignment, String model, Integer rating, int afRed, int afBlue, int afBlack, int asRed, int asBlue,
 			int asBlack, List<Keyword> keywords, List<ListFighter> lists, Image image, List<FighterDefenseToken> defenseTokens) {
 		super();
 		this.id = id;
@@ -186,11 +185,11 @@ public class Fighter {
 		this.model = model;
 	}
 
-	public int getRating() {
+	public Integer getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 

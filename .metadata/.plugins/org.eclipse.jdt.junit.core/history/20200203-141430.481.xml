@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="HullZoneTest" project="ArmadaSiteJPA" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.armadasite.entities.HullZoneTest" time="0.201" displayname="HullZoneTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.HullZoneTest]">
-    <testcase name="test" classname="com.skilldistillery.armadasite.entities.HullZoneTest" time="0.201" displayname="Testing basic HullZone fields" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.HullZoneTest]/[method:test()]"/>
-  </testsuite>
-</testrun>

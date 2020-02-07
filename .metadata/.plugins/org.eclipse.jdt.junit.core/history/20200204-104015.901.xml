@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ShipUpgradeTypeTest" project="ArmadaSiteJPA" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.armadasite.entities.ShipUpgradeTypeTest" time="0.198" displayname="ShipUpgradeTypeTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ShipUpgradeTypeTest]">
-    <testcase name="testShipRelationship" classname="com.skilldistillery.armadasite.entities.ShipUpgradeTypeTest" time="0.128" displayname="Testing relationship between ShipUpgradeType and Ship" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ShipUpgradeTypeTest]/[method:testShipRelationship()]"/>
-    <testcase name="testUpgradeTypeRelationship" classname="com.skilldistillery.armadasite.entities.ShipUpgradeTypeTest" time="0.005" displayname="Testing relationship between ShipUpgradeType and UpgradeType" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ShipUpgradeTypeTest]/[method:testUpgradeTypeRelationship()]"/>
-    <testcase name="testFields" classname="com.skilldistillery.armadasite.entities.ShipUpgradeTypeTest" time="0.065" displayname="Testing basic fields for ShipUpgradeType" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.armadasite.entities.ShipUpgradeTypeTest]/[method:testFields()]"/>
-  </testsuite>
-</testrun>

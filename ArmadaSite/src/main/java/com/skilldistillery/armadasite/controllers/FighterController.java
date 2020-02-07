@@ -28,11 +28,12 @@ public class FighterController {
 	}
 
 	@GetMapping("{id}")
-	private Fighter show(@PathVariable int id, HttpServletResponse response) {
+	private Fighter show(@PathVariable String id, HttpServletResponse response) {
 		Fighter fighter = null;
 
 		try {
-			fighter = fighterSvc.getFighterById(id);
+			int idInt = Integer.parseInt(id);
+			fighter = fighterSvc.getFighterById(idInt);
 
 			if (fighter == null) {
 				response.setStatus(404);
@@ -88,10 +89,11 @@ public class FighterController {
 	}
 
 	@GetMapping("key/{keywordId}")
-	private List<Fighter> indexByKeyword(@PathVariable int keyId, HttpServletResponse response) {
+	private List<Fighter> indexByKeyword(@PathVariable String keywordId, HttpServletResponse response) {
 		List<Fighter> fighters = null;
 
 		try {
+			int keyId = Integer.parseInt(keywordId);
 			fighters = fighterSvc.getFightersByCardKey(keyId);
 
 			if (fighters == null || fighters.size() <= 0) {
@@ -108,11 +110,12 @@ public class FighterController {
 	}
 
 	@GetMapping("cost/{cost}")
-	private List<Fighter> indexByCost(@PathVariable int cost, HttpServletResponse response) {
+	private List<Fighter> indexByCost(@PathVariable String cost, HttpServletResponse response) {
 		List<Fighter> fighters = null;
 
 		try {
-			fighters = fighterSvc.getFightersByCost(cost);
+			int costInt = Integer.parseInt(cost);
+			fighters = fighterSvc.getFightersByCost(costInt);
 
 			if (fighters == null || fighters.size() <= 0) {
 				response.setStatus(404);
