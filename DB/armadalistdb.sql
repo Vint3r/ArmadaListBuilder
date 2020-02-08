@@ -281,9 +281,9 @@ DROP TABLE IF EXISTS `list` ;
 
 CREATE TABLE IF NOT EXISTS `list` (
   `id` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `desired_cost` INT NOT NULL,
-  `actual_cost` INT NULL,
+  `name` VARCHAR(100) NULL,
+  `desired_cost` INT NULL,
+  `actual_cost` INT NOT NULL,
   `point_sway` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -1499,6 +1499,9 @@ START TRANSACTION;
 USE `armadalistdb`;
 INSERT INTO `ship_build` (`id`, `ship_id`) VALUES (1, 1);
 INSERT INTO `ship_build` (`id`, `ship_id`) VALUES (2, 3);
+INSERT INTO `ship_build` (`id`, `ship_id`) VALUES (3, 9);
+INSERT INTO `ship_build` (`id`, `ship_id`) VALUES (4, 9);
+INSERT INTO `ship_build` (`id`, `ship_id`) VALUES (5, 6);
 
 COMMIT;
 
@@ -1509,6 +1512,7 @@ COMMIT;
 START TRANSACTION;
 USE `armadalistdb`;
 INSERT INTO `list` (`id`, `name`, `desired_cost`, `actual_cost`, `point_sway`) VALUES (1, 'First Build', 500, 354, 15);
+INSERT INTO `list` (`id`, `name`, `desired_cost`, `actual_cost`, `point_sway`) VALUES (2, 'Second One', 500, 456, 15);
 
 COMMIT;
 
@@ -1630,6 +1634,15 @@ USE `armadalistdb`;
 INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (1, 1);
 INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (69, 2);
 INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (72, 2);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (31, 3);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (32, 4);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (143, 3);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (143, 4);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (1, 5);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (26, 5);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (157, 5);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (73, 5);
+INSERT INTO `upgrade_ship_build` (`upgrade_id`, `ship_build_id`) VALUES (85, 5);
 
 COMMIT;
 
@@ -1695,6 +1708,9 @@ START TRANSACTION;
 USE `armadalistdb`;
 INSERT INTO `list_ship` (`list_id`, `ship_build_id`) VALUES (1, 1);
 INSERT INTO `list_ship` (`list_id`, `ship_build_id`) VALUES (1, 2);
+INSERT INTO `list_ship` (`list_id`, `ship_build_id`) VALUES (2, 3);
+INSERT INTO `list_ship` (`list_id`, `ship_build_id`) VALUES (2, 4);
+INSERT INTO `list_ship` (`list_id`, `ship_build_id`) VALUES (2, 5);
 
 COMMIT;
 
@@ -1706,6 +1722,10 @@ START TRANSACTION;
 USE `armadalistdb`;
 INSERT INTO `list_fighter` (`fighter_id`, `list_id`, `amount`) VALUES (1, 1, 1);
 INSERT INTO `list_fighter` (`fighter_id`, `list_id`, `amount`) VALUES (5, 1, 5);
+INSERT INTO `list_fighter` (`fighter_id`, `list_id`, `amount`) VALUES (2, 2, 1);
+INSERT INTO `list_fighter` (`fighter_id`, `list_id`, `amount`) VALUES (5, 2, 5);
+INSERT INTO `list_fighter` (`fighter_id`, `list_id`, `amount`) VALUES (6, 2, 1);
+INSERT INTO `list_fighter` (`fighter_id`, `list_id`, `amount`) VALUES (9, 2, 1);
 
 COMMIT;
 
@@ -1716,6 +1736,7 @@ COMMIT;
 START TRANSACTION;
 USE `armadalistdb`;
 INSERT INTO `user_has_list` (`user_id`, `list_id`) VALUES (1, 1);
+INSERT INTO `user_has_list` (`user_id`, `list_id`) VALUES (1, 2);
 
 COMMIT;
 

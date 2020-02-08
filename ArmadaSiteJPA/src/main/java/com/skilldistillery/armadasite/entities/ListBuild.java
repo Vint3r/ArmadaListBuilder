@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -194,4 +195,24 @@ public class ListBuild {
 				+ ", pointSway=" + "]";
 	}
 	
+	public void addListFighter(ListFighter fighter) {
+		if (fighters == null) {
+			fighters = new ArrayList<>();
+		}
+		
+		if (!fighters.contains(fighter)) {
+			fighters.add(fighter);
+			if (fighter.getList() != null) {
+				fighter.getList().getFighters().remove(fighter);
+			}
+			fighter.setList(this);
+		}
+	}
+	
+	public void removeListFighterToken(ListFighter fighter) {
+		fighter.setFighter(null);
+		if (fighters != null) {
+			fighters.remove(fighter);
+		}
+	}
 }

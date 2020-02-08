@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -48,19 +49,19 @@ public class Fighter {
 
 	// RELATIONSHIPS
 
-	@ManyToMany
+	@ManyToMany//
 	@JoinTable(name = "fighter_keyword", joinColumns = @JoinColumn(name = "fighter_id"), inverseJoinColumns = @JoinColumn(name = "keyword_id"))
 	private List<Keyword> keywords;
 
-	@OneToMany(mappedBy = "fighter")
+	@OneToMany(mappedBy = "fighter")//
 	@JsonIgnore
 	private List<ListFighter> lists;
 
-	@OneToOne
+	@OneToOne//
 	@JoinColumn(name = "image_id")
 	private Image image;
 	
-	@OneToMany(mappedBy = "fighter")
+	@OneToMany(mappedBy = "fighter")//
 	private List<FighterDefenseToken> defenseTokens;
 	
 	// CONSTRUCTORS
@@ -261,25 +262,7 @@ public class Fighter {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + afBlack;
-		result = prime * result + afBlue;
-		result = prime * result + afRed;
-		result = prime * result + ((alignment == null) ? 0 : alignment.hashCode());
-		result = prime * result + asBlack;
-		result = prime * result + asBlue;
-		result = prime * result + asRed;
-		result = prime * result + cost;
-		result = prime * result + health;
 		result = prime * result + id;
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
-		result = prime * result + ((keywords == null) ? 0 : keywords.hashCode());
-		result = prime * result + ((lists == null) ? 0 : lists.hashCode());
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		result = prime * result + movement;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + rating;
-		result = prime * result + ((specialAbility == null) ? 0 : specialAbility.hashCode());
-		result = prime * result + (unique ? 1231 : 1237);
 		return result;
 	}
 
@@ -362,4 +345,63 @@ public class Fighter {
 				+ afBlack + ", asRed=" + asRed + ", asBlue=" + asBlue + ", asBlack=" + asBlack + "]";
 	}
 
+	public void addFighterDefenseToken(FighterDefenseToken token) {
+		if (defenseTokens == null) {
+			defenseTokens = new ArrayList<>();
+		}
+		
+		if (!defenseTokens.contains(token)) {
+			defenseTokens.add(token);
+			if (token.getFighter() != null) {
+				token.getFighter().getDefenseTokens().remove(token);
+			}
+			token.setFighter(this);
+		}
+	}
+	
+	public void removeFighterDefenseToken(FighterDefenseToken token) {
+		token.setFighter(null);
+		if (defenseTokens != null) {
+			defenseTokens.remove(token);
+		}
+	}
+	
+	public void addKeyword(Keyword key) {
+		if (keywords == null) {
+			keywords = new ArrayList<>();
+		}
+
+		if (!keywords.contains(key)) {
+			keywords.add(key);
+			key.addFighter(this);
+		}
+	}
+
+	public void removeKeyword(Keyword key) {
+		if (keywords != null && keywords.contains(key)) {
+			keywords.remove(key);
+			key.removeFighter(this);
+		}
+	}
+	
+	public void addListFighter(ListFighter list) {
+		if (lists == null) {
+			lists = new ArrayList<>();
+		}
+		
+		if (!lists.contains(list)) {
+			lists.add(list);
+			if (list.getFighter() != null) {
+				list.getFighter().getLists().remove(list);
+			}
+			list.setFighter(this);
+		}
+	}
+	
+	public void removeListFighterToken(ListFighter list) {
+		list.setFighter(null);
+		if (lists != null) {
+			lists.remove(list);
+		}
+	}
 }

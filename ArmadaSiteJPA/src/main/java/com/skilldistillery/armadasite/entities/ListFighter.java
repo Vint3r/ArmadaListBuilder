@@ -7,7 +7,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "list_fighter")
@@ -83,10 +82,7 @@ public class ListFighter {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + amount;
-		result = prime * result + ((fighter == null) ? 0 : fighter.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((list == null) ? 0 : list.hashCode());
 		return result;
 	}
 

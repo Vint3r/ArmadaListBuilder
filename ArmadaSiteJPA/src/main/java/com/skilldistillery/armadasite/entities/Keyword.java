@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ public class Keyword {
 
 	// RELATIONSHIPS
 
-	@ManyToMany(mappedBy = "keywords")
+	@ManyToMany(mappedBy = "keywords")//
 	@JsonIgnore
 	private List<Fighter> fighters;
 
@@ -120,4 +121,21 @@ public class Keyword {
 		return "Keyword [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
 
+	public void addFighter(Fighter fighter) {
+		if (fighters == null) {
+			fighters = new ArrayList<>();
+		}
+
+		if (!fighters.contains(fighter)) {
+			fighters.add(fighter);
+			fighter.addKeyword(this);
+		}
+	}
+
+	public void removeFighter(Fighter fighter) {
+		if (fighters != null && fighters.contains(fighter)) {
+			fighters.remove(fighter);
+			fighter.removeKeyword(this);
+		}
+	}
 }

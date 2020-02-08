@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -30,7 +31,7 @@ public class UpgradeType {
 	@JoinColumn(name = "image_id")
 	private Image image;
 	
-	@OneToMany(mappedBy = "upgradeType")
+	@OneToMany(mappedBy = "upgradeType")//
 	@JsonIgnore
 	private List<ShipUpgradeType> ships;
 	
@@ -126,4 +127,24 @@ public class UpgradeType {
 		return "UpgradeType [id=" + id + ", type=" + type + ", image=" + image + "]";
 	}
 	
+	public void addUpgradeType(ShipUpgradeType ship) {
+		if (ships == null) {
+			ships = new ArrayList<>();
+		}
+		
+		if (!ships.contains(ship)) {
+			ships.add(ship);
+			if (ship.getUpgradeType() != null) {
+				ship.getUpgradeType().getShips().remove(ship);
+			}
+			ship.setUpgradeType(this);
+		}
+	}
+	
+	public void removeUpgradeType(ShipUpgradeType ship) {
+		ship.setUpgradeType(null);
+		if (ships != null) {
+			ships.remove(ship);
+		}
+	}
 }

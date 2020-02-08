@@ -101,6 +101,7 @@ public class ListBuildController {
 		ListBuild updatedList = null;
 
 		try {
+//			list = listSvc.updateFightersForList(list);
 			int listId = Integer.parseInt(id);
 			updatedList = listSvc.updateList(listId, list);
 

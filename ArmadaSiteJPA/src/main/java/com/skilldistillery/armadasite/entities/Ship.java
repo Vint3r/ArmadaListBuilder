@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -38,22 +39,22 @@ public class Ship {
 	private String name;
 	
 	//RELATIONSHIPS
-	@ManyToMany
+	@ManyToMany//
 	@JoinTable(name = "ship_hull_zone", joinColumns = @JoinColumn(name = "ship_id"), inverseJoinColumns = @JoinColumn(name = "hull_zone_id"))
 	private List<HullZone> hullZones;
 	
-	@OneToOne
+	@OneToOne//
 	@JoinColumn(name = "speed_id")
 	private Speed speed;
 	
-	@OneToMany(mappedBy = "ship")
+	@OneToMany(mappedBy = "ship")//
 	private List<ShipDefenseToken> defenseTokens;
 	
-	@ManyToMany
+	@ManyToMany//
 	@JoinTable(name = "ship_image", joinColumns = @JoinColumn(name = "ship_id"), inverseJoinColumns = @JoinColumn(name = "image_id"))
 	private List<Image> images;
 	
-	@OneToMany(mappedBy = "ship")
+	@OneToMany(mappedBy = "ship")//
 	private List<ShipUpgradeType> upgradeTypes;
 	
 	//CONSTRUCTORS
@@ -326,6 +327,63 @@ public class Ship {
 				+ ", baseSize=" + baseSize + ", afRed=" + afRed + ", afBlue=" + afBlue + ", afBlack=" + afBlack + "]";
 	}
 	
+	public void addShipDefenseToken(ShipDefenseToken token) {
+		if (defenseTokens == null) {
+			defenseTokens = new ArrayList<>();
+		}
+		
+		if (!defenseTokens.contains(token)) {
+			defenseTokens.add(token);
+			if (token.getShip() != null) {
+				token.getShip().getDefenseTokens().remove(token);
+			}
+			token.setShip(this);
+		}
+	}
 	
+	public void removeShipDefenseToken(ShipDefenseToken token) {
+		token.setShip(null);
+		if (defenseTokens != null) {
+			defenseTokens.remove(token);
+		}
+	}
 
+	public void addHullZone(HullZone zone) {
+		if (hullZones == null) {
+			hullZones = new ArrayList<>();
+		}
+
+		if (!hullZones.contains(zone)) {
+			hullZones.add(zone);
+			zone.addShip(this);
+		}
+	}
+
+	public void removeHullZone(HullZone zone) {
+		if (hullZones != null && hullZones.contains(zone)) {
+			hullZones.remove(zone);
+			zone.removeShip(this);
+		}
+	}
+	
+	public void addUpgradeType(ShipUpgradeType type) {
+		if (upgradeTypes == null) {
+			upgradeTypes = new ArrayList<>();
+		}
+		
+		if (!upgradeTypes.contains(type)) {
+			upgradeTypes.add(type);
+			if (type.getShip() != null) {
+				type.getShip().getUpgradeTypes().remove(type);
+			}
+			type.setShip(this);
+		}
+	}
+	
+	public void removeUpgradeType(ShipUpgradeType type) {
+		type.setShip(null);
+		if (upgradeTypes != null) {
+			upgradeTypes.remove(type);
+		}
+	}
 }

@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class HullZone {
 	//RELATIONSHIPS
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy = "hullZones")
+	@ManyToMany(mappedBy = "hullZones")//
 	private List<Ship> ships;
 
 	
@@ -181,6 +182,22 @@ public class HullZone {
 				+ ", asBlue=" + asBlue + ", asBlack=" + asBlack + "]";
 	}
 	
-	
-	
+	public void addShip(Ship ship) {
+		if (ships == null) {
+			ships = new ArrayList<>();
+		}
+
+		if (!ships.contains(ship)) {
+			ships.add(ship);
+			ship.addHullZone(this);
+		}
+	}
+
+	public void removeShip(Ship ship) {
+		if (ships != null && ships.contains(ship)) {
+			ships.remove(ship);
+			ship.removeHullZone(this);
+		}
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -27,15 +28,15 @@ public class DefenseToken {
 	
 	//RELATIONSHIPS
 	
-	@OneToMany(mappedBy = "defenseToken")
+	@OneToMany(mappedBy = "defenseToken")//
 	@JsonIgnore
 	private List<ShipDefenseToken> ships;
 	
 	@OneToOne
-	@JoinColumn(name = "image_id")
+	@JoinColumn(name = "image_id")//
 	private Image image;
 	
-	@OneToMany(mappedBy = "defenseToken")
+	@OneToMany(mappedBy = "defenseToken")//
 	@JsonIgnore
 	private List<FighterDefenseToken> fighters;
 	
@@ -156,4 +157,45 @@ public class DefenseToken {
 		return "DefenseToken [id=" + id + ", name=" + name + ", effect=" + effect + "]";
 	}
 
+	public void addShipDefenseToken(ShipDefenseToken shipToken) {
+		if (ships == null) {
+			ships = new ArrayList<>();
+		}
+
+		if (!ships.contains(shipToken)) {
+			ships.add(shipToken);
+			if (shipToken.getDefenseToken() != null) {
+				shipToken.getDefenseToken().getShips().remove(shipToken);
+			}
+			shipToken.setDefenseToken(this);
+		}
+	}
+
+	public void removeShipDefenseToken(ShipDefenseToken shipToken) {
+		shipToken.setDefenseToken(null);
+		if (ships != null) {
+			ships.remove(shipToken);
+		}
+	}
+	
+	public void addFighterDefenseToken(FighterDefenseToken fighterToken) {
+		if (fighters == null) {
+			fighters = new ArrayList<>();
+		}
+		
+		if (!fighters.contains(fighterToken)) {
+			fighters.add(fighterToken);
+			if (fighterToken.getDefenseToken() != null) {
+				fighterToken.getDefenseToken().getFighters().remove(fighterToken);
+			}
+			fighterToken.setDefenseToken(this);
+		}
+	}
+	
+	public void removeFighterDefenseToken(FighterDefenseToken fighterToken) {
+		fighterToken.setDefenseToken(null);
+		if (fighters != null) {
+			fighters.remove(fighterToken);
+		}
+	}
 }
