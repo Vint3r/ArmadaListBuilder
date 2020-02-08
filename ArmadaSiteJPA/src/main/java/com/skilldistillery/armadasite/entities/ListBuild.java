@@ -209,7 +209,7 @@ public class ListBuild {
 		}
 	}
 	
-	public void removeListFighterToken(ListFighter fighter) {
+	public void removeListFighter(ListFighter fighter) {
 		fighter.setFighter(null);
 		if (fighters != null) {
 			fighters.remove(fighter);

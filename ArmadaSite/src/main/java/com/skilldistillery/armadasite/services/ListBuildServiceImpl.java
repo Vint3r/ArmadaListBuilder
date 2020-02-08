@@ -18,7 +18,7 @@ public class ListBuildServiceImpl implements ListBuildService {
 
 	@Autowired
 	private ListBuildRepository listRepo;
-	
+
 	@Autowired
 	private ListFighterRepository fighterRepo;
 
@@ -47,11 +47,16 @@ public class ListBuildServiceImpl implements ListBuildService {
 			toUpdate.setPointSway(list.getPointSway());
 
 			if (list.getFighters() != null && list.getFighters().size() > 0) {
-				System.out.println(toUpdate.getFighters());
-				System.out.println(list.getFighters());
-				toUpdate.setFighters(updateFightersForList(toUpdate, list));
+
+				for (int i = 0; i < list.getFighters().size(); i++) {
+					list.getFighters().get(i).setList(list);
+					if (i < toUpdate.getFighters().size()) {
+						fighterRepo.delete(toUpdate.getFighters().get(i));
+						toUpdate.removeListFighter(toUpdate.getFighters().get(i));
+					}
+					fighterRepo.saveAndFlush(list.getFighters().get(i));
+				}
 				toUpdate.setFighters(list.getFighters());
-				System.out.println(toUpdate.getFighters());
 			}
 
 			if (list.getShipBuilds() != null && list.getShipBuilds().size() > 0) {
@@ -133,7 +138,7 @@ public class ListBuildServiceImpl implements ListBuildService {
 		return result;
 	}
 
-	public List<ListFighter> updateFightersForList(ListBuild toUpdate, ListBuild updateTo) {
+	public List<ListFighter> updateFightersForList(ListBuild updateTo, ListBuild toUpdate) {
 		Comparator<ListFighter> compareById = (ListFighter o1,
 				ListFighter o2) -> o1.getId().hashCode() > o2.getId().hashCode() ? -1 : 1;
 
@@ -141,14 +146,19 @@ public class ListBuildServiceImpl implements ListBuildService {
 		Collections.sort(toUpdate.getFighters(), compareById);
 
 		for (int i = 0; i < updateTo.getFighters().size(); i++) {
-			System.out.println(updateTo);
-			
+
 			if (toUpdate.getFighters().size() > i) {
-				if (updateTo.getFighters().get(i).getId().getFighterId() != toUpdate.getFighters().get(i).getId().getFighterId()) {
+
+				if (updateTo.getFighters().get(i).getId().getFighterId() != toUpdate.getFighters().get(i).getId()
+						.getFighterId()) {
+					toUpdate.removeListFighter(updateTo.getFighters().get(i));
+				} else {
 					updateTo.getFighters().get(i).setList(updateTo);
 					fighterRepo.saveAndFlush(updateTo.getFighters().get(i));
 				}
+
 			} else {
+				updateTo.getFighters().get(i).setList(updateTo);
 				fighterRepo.saveAndFlush(updateTo.getFighters().get(i));
 			}
 		}
