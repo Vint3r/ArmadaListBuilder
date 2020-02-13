@@ -144,7 +144,6 @@ public class ListBuild {
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + pointSway;
-		result = prime * result + ((shipBuilds == null) ? 0 : shipBuilds.hashCode());
 		result = prime * result + ((users == null) ? 0 : users.hashCode());
 		return result;
 	}
@@ -213,6 +212,42 @@ public class ListBuild {
 		fighter.setFighter(null);
 		if (fighters != null) {
 			fighters.remove(fighter);
+		}
+	}
+	
+	public void addShipBuild(ShipBuild ship) {
+		if (shipBuilds == null) {
+			shipBuilds = new ArrayList<>();
+		}
+
+		if (!shipBuilds.contains(ship)) {
+			shipBuilds.add(ship);
+			ship.addList(this);
+		}
+	}
+
+	public void removeShipBuild(ShipBuild ship) {
+		if (shipBuilds != null && shipBuilds.contains(ship)) {
+			shipBuilds.remove(ship);
+			ship.removeList(this);
+		}
+	}
+	
+	public void addUser(User user) {
+		if (users == null) {
+			users = new ArrayList<>();
+		}
+
+		if (!users.contains(user)) {
+			users.add(user);
+			user.addList(this);
+		}
+	}
+
+	public void removeUser(User user) {
+		if (users != null && users.contains(user)) {
+			users.remove(user);
+			user.removeList(this);
 		}
 	}
 }

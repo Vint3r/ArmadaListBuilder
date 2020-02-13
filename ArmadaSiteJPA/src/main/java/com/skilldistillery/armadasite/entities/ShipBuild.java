@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -92,7 +93,6 @@ public class ShipBuild {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + ((lists == null) ? 0 : lists.hashCode());
 		result = prime * result + ((ship == null) ? 0 : ship.hashCode());
 		result = prime * result + ((upgrades == null) ? 0 : upgrades.hashCode());
 		return result;
@@ -132,4 +132,21 @@ public class ShipBuild {
 		return "ShipBuild [id=" + id + ", ship=" + ship + "]";
 	}
 
+	public void addList(ListBuild list) {
+		if (lists == null) {
+			lists = new ArrayList<>();
+		}
+
+		if (!lists.contains(list)) {
+			lists.add(list);
+			list.addShipBuild(this);
+		}
+	}
+
+	public void removeList(ListBuild list) {
+		if (lists != null && lists.contains(list)) {
+			lists.remove(list);
+			list.removeShipBuild(this);
+		}
+	}
 }

@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `ship` (
   `af_red` INT NULL,
   `af_blue` INT NULL,
   `af_black` INT NULL,
-  `speed_id` INT NOT NULL,
+  `speed_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_ship_speed1_idx` (`speed_id` ASC),
   CONSTRAINT `fk_ship_speed1`
@@ -97,7 +97,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `upgrade_type` ;
 
 CREATE TABLE IF NOT EXISTS `upgrade_type` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(100) NULL,
   `image_id` INT NULL,
   PRIMARY KEY (`id`),
@@ -280,7 +280,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `list` ;
 
 CREATE TABLE IF NOT EXISTS `list` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NULL,
   `desired_cost` INT NULL,
   `actual_cost` INT NOT NULL,
@@ -295,7 +295,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `fighter` ;
 
 CREATE TABLE IF NOT EXISTS `fighter` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `unique` TINYINT NOT NULL DEFAULT 0,
   `health` INT NULL,

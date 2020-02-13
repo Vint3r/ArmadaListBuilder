@@ -1,5 +1,6 @@
 package com.skilldistillery.armadasite.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -113,5 +114,21 @@ public class User {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", lists=" + lists + "]";
 	}
 
-	
+	public void addList(ListBuild list) {
+		if (lists == null) {
+			lists = new ArrayList<>();
+		}
+
+		if (!lists.contains(list)) {
+			lists.add(list);
+			list.addUser(this);
+		}
+	}
+
+	public void removeList(ListBuild list) {
+		if (lists != null && lists.contains(list)) {
+			lists.remove(list);
+			list.removeUser(this);
+		}
+	}
 }

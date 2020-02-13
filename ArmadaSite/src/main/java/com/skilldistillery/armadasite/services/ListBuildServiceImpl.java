@@ -12,6 +12,7 @@ import com.skilldistillery.armadasite.entities.ListBuild;
 import com.skilldistillery.armadasite.entities.ListFighter;
 import com.skilldistillery.armadasite.repositories.ListBuildRepository;
 import com.skilldistillery.armadasite.repositories.ListFighterRepository;
+import com.skilldistillery.armadasite.repositories.ShipBuildRepository;
 
 @Service
 public class ListBuildServiceImpl implements ListBuildService {
@@ -22,12 +23,17 @@ public class ListBuildServiceImpl implements ListBuildService {
 	@Autowired
 	private ListFighterRepository fighterRepo;
 
+	@Autowired
+	private ShipBuildRepository shipRepo;
+
 	@Override
 	public ListBuild createList(ListBuild list) {
 		ListBuild result = null;
 		try {
+						
 			result = listRepo.saveAndFlush(list);
 			return result;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -50,17 +56,37 @@ public class ListBuildServiceImpl implements ListBuildService {
 
 				for (int i = 0; i < list.getFighters().size(); i++) {
 					list.getFighters().get(i).setList(list);
+
 					if (i < toUpdate.getFighters().size()) {
 						fighterRepo.delete(toUpdate.getFighters().get(i));
 						toUpdate.removeListFighter(toUpdate.getFighters().get(i));
 					}
-					fighterRepo.saveAndFlush(list.getFighters().get(i));
+
+					try {
+						fighterRepo.saveAndFlush(list.getFighters().get(i));
+					} catch (Exception e) {
+						e.printStackTrace();
+						return null;
+					}
 				}
 				toUpdate.setFighters(list.getFighters());
 			}
 
 			if (list.getShipBuilds() != null && list.getShipBuilds().size() > 0) {
+				System.out.println("IN THE IF");
 				toUpdate.setShipBuilds(list.getShipBuilds());
+
+				for (int i = 0; i < toUpdate.getShipBuilds().size(); i++) {
+					toUpdate.getShipBuilds().get(i).addList(list);
+
+					try {
+						shipRepo.saveAndFlush(toUpdate.getShipBuilds().get(i));
+					} catch (Exception e) {
+						e.printStackTrace();
+						return null;
+					}
+				}
+
 			}
 
 			if (list.getDesiredCost() > 0) {
@@ -71,7 +97,12 @@ public class ListBuildServiceImpl implements ListBuildService {
 				toUpdate.setName(list.getName());
 			}
 
-			listRepo.saveAndFlush(toUpdate);
+			try {
+				listRepo.saveAndFlush(toUpdate);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
 		}
 
 		return toUpdate;
@@ -88,6 +119,13 @@ public class ListBuildServiceImpl implements ListBuildService {
 			listDel = temp.get();
 
 			try {
+				
+				for (int i = 0; i < listDel.getFighters().size(); i++) {
+					fighterRepo.delete(listDel.getFighters().get(i));
+				}
+				
+				listDel.removeUser(listDel.getUsers().get(0));
+				
 				listRepo.delete(listDel);
 			} catch (Exception e) {
 				e.printStackTrace();
