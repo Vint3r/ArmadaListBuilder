@@ -28,11 +28,13 @@ public class ShipController {
 	}
 
 	@GetMapping("{id}")
-	private Ship show(@PathVariable int id, HttpServletResponse response) {
+	private Ship show(@PathVariable String id, HttpServletResponse response) {
 		Ship ship = null;
 
 		try {
-			ship = shipSvc.getShipById(id);
+			
+			int intId = Integer.parseInt(id);
+			ship = shipSvc.getShipById(intId);
 
 			if (ship == null) {
 				response.setStatus(404);
@@ -88,11 +90,13 @@ public class ShipController {
 	}
 
 	@GetMapping("cost/{cost}")
-	private List<Ship> indexByCost(@PathVariable int cost, HttpServletResponse response) {
+	private List<Ship> indexByCost(@PathVariable String cost, HttpServletResponse response) {
 		List<Ship> ships = null;
 
 		try {
-			ships = shipSvc.getAllShipsBelowCost(cost);
+			
+			int intCost = Integer.parseInt(cost);
+			ships = shipSvc.getAllShipsBelowCost(intCost);
 
 			if (ships == null || ships.size() <= 0) {
 				response.setStatus(404);
@@ -108,11 +112,13 @@ public class ShipController {
 	}
 
 	@GetMapping("upgradetype/{id}")
-	private List<Ship> indexByUpgradeType(@PathVariable int id, HttpServletResponse response) {
+	private List<Ship> indexByUpgradeType(@PathVariable String id, HttpServletResponse response) {
 		List<Ship> ships = null;
 
 		try {
-			ships = shipSvc.getAllShipsByUpType(id);
+			
+			int intId = Integer.parseInt(id);
+			ships = shipSvc.getAllShipsByUpType(intId);
 
 			if (ships == null || ships.size() <= 0) {
 				response.setStatus(404);

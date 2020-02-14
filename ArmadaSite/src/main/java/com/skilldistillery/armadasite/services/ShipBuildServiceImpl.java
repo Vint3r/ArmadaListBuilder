@@ -6,21 +6,28 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.armadasite.entities.Ship;
 import com.skilldistillery.armadasite.entities.ShipBuild;
 import com.skilldistillery.armadasite.repositories.ShipBuildRepository;
+import com.skilldistillery.armadasite.repositories.ShipRepository;
 
 @Service
 public class ShipBuildServiceImpl implements ShipBuildService {
 
 	@Autowired
 	private ShipBuildRepository buildRepo;
+	
+	@Autowired
+	private ShipRepository shipRepo;
 
 	@Override
 	public ShipBuild createShipBuild(ShipBuild ship) {
 		ShipBuild result = null;
 		try {
+			
 			result = buildRepo.saveAndFlush(ship);
 			return result;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -30,6 +37,7 @@ public class ShipBuildServiceImpl implements ShipBuildService {
 	@Override
 	public ShipBuild updateShipBuild(int id, ShipBuild ship) {
 		ShipBuild toUpdate = null;
+		Ship capShip = null;
 
 		Optional<ShipBuild> temp = buildRepo.findById(ship.getId());
 		if (temp.isPresent()) {
@@ -38,7 +46,18 @@ public class ShipBuildServiceImpl implements ShipBuildService {
 			toUpdate.setUpgrades(ship.getUpgrades());
 			
 			if (ship.getShip() != null) {
-				toUpdate.setShip(ship.getShip());
+
+				Optional<Ship> tempShip = shipRepo.findById(ship.getShip().getId());
+				
+				if(tempShip.isPresent()) {
+					
+					capShip = tempShip.get();
+					toUpdate.setShip(capShip);
+					
+				} else {
+					toUpdate.setShip(ship.getShip());
+				}
+				
 			}
 
 			if (ship.getLists() != null && ship.getLists().size() > 0) {

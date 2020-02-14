@@ -7,6 +7,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "ship_upgrade_type")
 public class ShipUpgradeType {
@@ -23,6 +25,7 @@ public class ShipUpgradeType {
 	@ManyToOne
 	@JoinColumn(name = "ship_id")
 	@MapsId(value = "shipId")
+	@JsonIgnore
 	private Ship ship;
 
 	@ManyToOne

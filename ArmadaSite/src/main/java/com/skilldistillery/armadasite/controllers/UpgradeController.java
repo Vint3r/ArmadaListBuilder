@@ -28,11 +28,13 @@ public class UpgradeController {
 	}
 
 	@GetMapping("{id}")
-	private Upgrade show(@PathVariable int id, HttpServletResponse response) {
+	private Upgrade show(@PathVariable String id, HttpServletResponse response) {
 		Upgrade upgrade = null;
 
 		try {
-			upgrade = upgradeSvc.getUpgradeById(id);
+			
+			int intId = Integer.parseInt(id);
+			upgrade = upgradeSvc.getUpgradeById(intId);
 
 			if (upgrade == null) {
 				response.setStatus(404);
@@ -48,11 +50,13 @@ public class UpgradeController {
 	}
 
 	@GetMapping("upgradetype/{id}")
-	private List<Upgrade> indexByUpgradeType(@PathVariable int id, HttpServletResponse response) {
+	private List<Upgrade> indexByUpgradeType(@PathVariable String id, HttpServletResponse response) {
 		List<Upgrade> upgrade = null;
 
 		try {
-			upgrade = upgradeSvc.getUpgradeByType(id);
+			
+			int intId = Integer.parseInt(id);
+			upgrade = upgradeSvc.getUpgradeByType(intId);
 
 			if (upgrade == null) {
 				response.setStatus(404);

@@ -28,11 +28,13 @@ public class UpgradeTypeController {
 	}
 	
 	@GetMapping("{id}")
-	private UpgradeType show(@PathVariable int id, HttpServletResponse response) {
+	private UpgradeType show(@PathVariable String id, HttpServletResponse response) {
 		UpgradeType upType = null;
 
 		try {
-			upType = upTypeSvc.getUpgradeTypeById(id);
+			
+			int intId = Integer.parseInt(id);
+			upType = upTypeSvc.getUpgradeTypeById(intId);
 
 			if (upType == null) {
 				response.setStatus(404);

@@ -33,11 +33,13 @@ public class ShipBuildController {
 	}
 	
 	@GetMapping("{id}")
-	private ShipBuild show(@PathVariable int id, HttpServletResponse response) {
+	private ShipBuild show(@PathVariable String id, HttpServletResponse response) {
 		ShipBuild build = null;
 
 		try {
-			build = buildSvc.getShipBuildById(id);
+			
+			int intId = Integer.parseInt(id);
+			build = buildSvc.getShipBuildById(intId);
 
 			if (build == null) {
 				response.setStatus(404);
@@ -53,11 +55,13 @@ public class ShipBuildController {
 	}
 	
 	@GetMapping("list/{lid}")
-	private List<ShipBuild> indexShipBuildsForList(@PathVariable int lid, HttpServletResponse response) {
+	private List<ShipBuild> indexShipBuildsForList(@PathVariable String lid, HttpServletResponse response) {
 		List<ShipBuild> builds = null;
 		
 		try {
-			builds = buildSvc.getAllShipBuildsByListId(lid);
+			
+			int intId = Integer.parseInt(lid);
+			builds = buildSvc.getAllShipBuildsByListId(intId);
 			
 			if(builds == null) {
 				response.setStatus(404);
@@ -73,11 +77,13 @@ public class ShipBuildController {
 	}
 	
 	@PostMapping("update/{id}")
-	private ShipBuild updateShipBuild(@PathVariable int id, @RequestBody ShipBuild build, HttpServletResponse response) {
+	private ShipBuild updateShipBuild(@PathVariable String id, @RequestBody ShipBuild build, HttpServletResponse response) {
 		ShipBuild updatedBuild = null;
 
 		try {
-			updatedBuild = buildSvc.updateShipBuild(id, build);
+			
+			int intId = Integer.parseInt(id);
+			updatedBuild = buildSvc.updateShipBuild(intId, build);
 
 			if (updatedBuild == null) {
 				response.setStatus(404);
@@ -122,9 +128,12 @@ public class ShipBuildController {
 	}
 
 	@DeleteMapping("delete/{id}")
-	private void deleteShipBuild(@PathVariable int id, HttpServletResponse response) {
+	private void deleteShipBuild(@PathVariable String id, HttpServletResponse response) {
 		try {
-			if (buildSvc.deleteShipBuild(id)) {
+			
+			int intId = Integer.parseInt(id);
+			
+			if (buildSvc.deleteShipBuild(intId)) {
 				response.setStatus(204);
 			} else {
 				response.setStatus(404);
