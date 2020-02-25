@@ -3023,3 +3023,388 @@ Caused by: java.lang.NoSuchMethodException: org.springframework.context.annotati
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-14 16:13:49.481
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.iBbAhPoM => OK
+
+!ENTRY net.resheim.eclipse.launcher.core 1 0 2020-02-25 13:38:14.163
+!MESSAGE Launching new Eclipse instance with "open -n /Applications/MAMP/SpringToolSuite4.app --args -vm /Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/server/libjvm.dylib -os macosx -ws cocoa -arch x86_64 -showsplash -launcher /Applications/MAMP/SpringToolSuite4.app/Contents/MacOS/SpringToolSuite4 -name SpringToolSuite4 --launcher.library /Applications/MAMP/SpringToolSuite4.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.1100.v20190907-0426/eclipse_1902.so -startup /Applications/MAMP/SpringToolSuite4.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.5.500.v20190715-1310.jar --launcher.overrideVmargs -product org.springframework.boot.ide.branding.sts4 -launcher /Applications/MAMP/SpringToolSuite4.app/Contents/MacOS/SpringToolSuite4 -product org.springframework.boot.ide.branding.sts4 -launcher /Applications/MAMP/SpringToolSuite4.app/Contents/MacOS/SpringToolSuite4 -product org.springframework.boot.ide.branding.sts4 -keyring /Users/David/.eclipse_keyring -data /Users/David/SD/Java/FinalProject -vmargs -Dosgi.requiredJavaVersion=1.8 -Xms256m -Xmx1024m -XX:+UseG1GC -XX:+UseStringDeduplication -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -Xdock:icon=../Resources/sts4.icns -Djava.class.path=/Applications/MAMP/SpringToolSuite4.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.5.500.v20190715-1310.jar -Djava.class.path=/Applications/MAMP/SpringToolSuite4.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.5.500.v20190715-1310.jar -Djava.class.path=/Applications/MAMP/SpringToolSuite4.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.5.500.v20190715-1310.jar "
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:43.066
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:43.069
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@181b8d0c[org.springframework.tooling.boot.ls:1.12.0.201910232051(id=626)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:43.069
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.eclipse.lsp4e 4 0 2020-02-25 13:42:44.766
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.getHoverInfo(LSPTextHover.java:109)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.018
+!MESSAGE Boot LS startup time from start to initialized: 1944ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.045
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.SrCGXOsPisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.046
+!MESSAGE subscribing to classpath changes: sts4.classpath.SrCGXOsP isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.046
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.046
+!MESSAGE subsribers = {sts4.classpath.SrCGXOsP=Send Classpath Notifications(6323)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.046
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.046
+!MESSAGE project ArmadaSiteJPA ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.047
+!MESSAGE project ArmadaSite ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.047
+!MESSAGE Preparing classpath changed notification ArmadaSiteJPA
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.047
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.048
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.048
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.SrCGXOsP => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.054
+!MESSAGE classpath=53 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.054
+!MESSAGE buffering callback sts4.classpath.SrCGXOsP ArmadaSiteJPA false 53
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.055
+!MESSAGE Preparing classpath changed notification ArmadaSite
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.055
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.060
+!MESSAGE classpath=125 entries
+
+!ENTRY org.eclipse.lsp4e 4 0 2020-02-25 13:42:45.060
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:357)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.lambda$11(LSPTextHover.java:237)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1382)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.lambda$10(LSPTextHover.java:246)
+	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:602)
+	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
+	at java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:443)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:242)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.061
+!MESSAGE buffering callback sts4.classpath.SrCGXOsP ArmadaSite false 125
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.062
+!MESSAGE executing callback sts4.classpath.SrCGXOsP 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:42:45.097
+!MESSAGE executing callback sts4.classpath.SrCGXOsP SUCCESS [done]
+
+!ENTRY org.eclipse.jface.text 4 0 2020-02-25 13:45:45.279
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.compiler.lookup.BinaryTypeBinding.getMethods(BinaryTypeBinding.java:1345)
+	at org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding.setMethodBindings(AnnotationBinding.java:234)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.createAnnotation(LookupEnvironment.java:993)
+	at org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding.buildTargetAnnotation(AnnotationBinding.java:187)
+	at org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding.addStandardAnnotations(AnnotationBinding.java:79)
+	at org.eclipse.jdt.internal.compiler.lookup.BinaryTypeBinding.retrieveAnnotations(BinaryTypeBinding.java:1687)
+	at org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding.getAnnotations(ReferenceBinding.java:1043)
+	at org.eclipse.jdt.core.dom.TypeBinding.getAnnotations(TypeBinding.java:121)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getAnnotations(JavadocHover.java:1192)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.addAnnotations(JavadocHover.java:1149)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:757)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:678)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:670)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:23.281
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.SrCGXOsP
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:23.282
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.SrCGXOsP
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:23.282
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:23.283
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.SrCGXOsP => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:24.950
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:24.951
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@181b8d0c[org.springframework.tooling.boot.ls:1.12.0.201910232051(id=626)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:24.951
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.eclipse.lsp4e 4 0 2020-02-25 13:57:26.227
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.getHoverInfo(LSPTextHover.java:109)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.491
+!MESSAGE Boot LS startup time from start to initialized: 1536ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.514
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.yUmDVAXRisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.515
+!MESSAGE subscribing to classpath changes: sts4.classpath.yUmDVAXR isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.515
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.516
+!MESSAGE subsribers = {sts4.classpath.yUmDVAXR=Send Classpath Notifications(6338)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.516
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.516
+!MESSAGE project ArmadaSiteJPA ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.517
+!MESSAGE project ArmadaSite ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.517
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.517
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.yUmDVAXR => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.519
+!MESSAGE Preparing classpath changed notification ArmadaSiteJPA
+
+!ENTRY org.eclipse.lsp4e 4 0 2020-02-25 13:57:26.519
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:357)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.lambda$11(LSPTextHover.java:237)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1382)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.lambda$10(LSPTextHover.java:246)
+	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:602)
+	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
+	at java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:443)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:242)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.523
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.525
+!MESSAGE classpath=53 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.526
+!MESSAGE buffering callback sts4.classpath.yUmDVAXR ArmadaSiteJPA false 53
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.526
+!MESSAGE Preparing classpath changed notification ArmadaSite
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.527
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.531
+!MESSAGE classpath=125 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.532
+!MESSAGE buffering callback sts4.classpath.yUmDVAXR ArmadaSite false 125
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.532
+!MESSAGE executing callback sts4.classpath.yUmDVAXR 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 13:57:26.563
+!MESSAGE executing callback sts4.classpath.yUmDVAXR SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:21.655
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.yUmDVAXR
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:21.656
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.yUmDVAXR
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:21.656
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:21.656
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.yUmDVAXR => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:23.947
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:23.947
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@181b8d0c[org.springframework.tooling.boot.ls:1.12.0.201910232051(id=626)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:23.948
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.eclipse.lsp4e 4 0 2020-02-25 15:36:25.001
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.getHoverInfo(LSPTextHover.java:109)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.558
+!MESSAGE Boot LS startup time from start to initialized: 1610ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.583
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.kAHiSSUBisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.584
+!MESSAGE subscribing to classpath changes: sts4.classpath.kAHiSSUB isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.584
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.585
+!MESSAGE subsribers = {sts4.classpath.kAHiSSUB=Send Classpath Notifications(6361)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.585
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.585
+!MESSAGE project ArmadaSiteJPA ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.586
+!MESSAGE project ArmadaSite ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.586
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.586
+!MESSAGE Preparing classpath changed notification ArmadaSiteJPA
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.586
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.kAHiSSUB => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.587
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.589
+!MESSAGE classpath=53 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.591
+!MESSAGE buffering callback sts4.classpath.kAHiSSUB ArmadaSiteJPA false 53
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.591
+!MESSAGE Preparing classpath changed notification ArmadaSite
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.591
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.595
+!MESSAGE classpath=125 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.596
+!MESSAGE buffering callback sts4.classpath.kAHiSSUB ArmadaSite false 125
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.596
+!MESSAGE executing callback sts4.classpath.kAHiSSUB 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 15:36:25.646
+!MESSAGE executing callback sts4.classpath.kAHiSSUB SUCCESS [done]
+
+!ENTRY org.eclipse.jface.text 4 0 2020-02-25 15:46:08.426
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.compiler.lookup.BinaryTypeBinding.getField(BinaryTypeBinding.java:1279)
+	at org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding.buildTargetAnnotation(AnnotationBinding.java:173)
+	at org.eclipse.jdt.internal.compiler.lookup.AnnotationBinding.addStandardAnnotations(AnnotationBinding.java:79)
+	at org.eclipse.jdt.internal.compiler.lookup.BinaryTypeBinding.retrieveAnnotations(BinaryTypeBinding.java:1687)
+	at org.eclipse.jdt.internal.compiler.lookup.ReferenceBinding.getAnnotations(ReferenceBinding.java:1043)
+	at org.eclipse.jdt.core.dom.TypeBinding.getAnnotations(TypeBinding.java:121)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getAnnotations(JavadocHover.java:1192)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.addAnnotations(JavadocHover.java:1149)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:757)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:678)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:670)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
