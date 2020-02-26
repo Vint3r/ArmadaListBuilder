@@ -3408,3 +3408,84 @@ java.lang.NullPointerException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:28.849
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.kAHiSSUB
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:28.850
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.kAHiSSUB
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:28.850
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:28.850
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.kAHiSSUB => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:30.940
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:30.941
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@181b8d0c[org.springframework.tooling.boot.ls:1.12.0.201910232051(id=626)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:30.942
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.548
+!MESSAGE Boot LS startup time from start to initialized: 1605ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.576
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.auqQyezDisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.577
+!MESSAGE subscribing to classpath changes: sts4.classpath.auqQyezD isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.577
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.577
+!MESSAGE subsribers = {sts4.classpath.auqQyezD=Send Classpath Notifications(6425)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.578
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.578
+!MESSAGE project ArmadaSiteJPA ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.579
+!MESSAGE project ArmadaSite ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.579
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.579
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.auqQyezD => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.579
+!MESSAGE Preparing classpath changed notification ArmadaSiteJPA
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.580
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.583
+!MESSAGE classpath=53 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.583
+!MESSAGE buffering callback sts4.classpath.auqQyezD ArmadaSiteJPA false 53
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.584
+!MESSAGE Preparing classpath changed notification ArmadaSite
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.584
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.586
+!MESSAGE classpath=125 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.587
+!MESSAGE buffering callback sts4.classpath.auqQyezD ArmadaSite false 125
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.587
+!MESSAGE executing callback sts4.classpath.auqQyezD 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-02-25 17:09:32.617
+!MESSAGE executing callback sts4.classpath.auqQyezD SUCCESS [done]

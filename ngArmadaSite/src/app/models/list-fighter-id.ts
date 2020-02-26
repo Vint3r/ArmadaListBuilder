@@ -7,7 +7,7 @@ export class ListFighterId {
 
   // CONSTRUCTOR
 
-  constructor(fighterId?: number, listId?: number) {
+  constructor(fighterId: number, listId: number) {
     this.fighterId = fighterId;
     this.listId = listId;
   }

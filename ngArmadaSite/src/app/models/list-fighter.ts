@@ -16,7 +16,7 @@ export class ListFighter {
 
   // CONSTRUCTOR
 
-  constructor(id: ListFighterId, amount?: number, fighter?: Fighter, list?: ListBuild) {
+  constructor(id?: ListFighterId, amount?: number, fighter?: Fighter, list?: ListBuild) {
     this.id = id;
     this.amount = amount;
     this.fighter = fighter;

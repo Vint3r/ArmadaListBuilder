@@ -16,7 +16,7 @@ export class FighterDefenseToken {
 
   // CONSTRUCTOR
 
-  constructor(id: FighterDefenseTokenId, amount?: number, fighter?: Fighter, defenseToken?: DefenseToken) {
+  constructor(id?: FighterDefenseTokenId, amount?: number, fighter?: Fighter, defenseToken?: DefenseToken) {
     this.id = id;
     this.amount = amount;
     this.fighter = fighter;
