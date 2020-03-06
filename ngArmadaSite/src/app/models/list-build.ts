@@ -11,6 +11,7 @@ export class ListBuild {
   desiredCost: number;
   actualCost: number;
   pointSway: number;
+  pub: boolean;
 
   // RELATIONSHIPS
 
@@ -25,6 +26,7 @@ export class ListBuild {
               desiredCost?: number,
               actualCost?: number,
               pointSway?: number,
+              pub?: boolean,
               fighters?: ListFighter[],
               shipBuilds?: ShipBuild[],
               users?: User[]) {
@@ -36,5 +38,6 @@ export class ListBuild {
     this.fighters = fighters;
     this.shipBuilds = shipBuilds;
     this.users = users;
+    this.pub = pub;
   }
 }

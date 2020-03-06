@@ -285,6 +285,7 @@ CREATE TABLE IF NOT EXISTS `list` (
   `desired_cost` INT NULL,
   `actual_cost` INT NOT NULL,
   `point_sway` INT NOT NULL DEFAULT 0,
+  `public` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -1511,8 +1512,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `armadalistdb`;
-INSERT INTO `list` (`id`, `name`, `desired_cost`, `actual_cost`, `point_sway`) VALUES (1, 'First Build', 500, 354, 15);
-INSERT INTO `list` (`id`, `name`, `desired_cost`, `actual_cost`, `point_sway`) VALUES (2, 'Second One', 500, 456, 15);
+INSERT INTO `list` (`id`, `name`, `desired_cost`, `actual_cost`, `point_sway`, `public`) VALUES (1, 'First Build', 500, 354, 15, 0);
+INSERT INTO `list` (`id`, `name`, `desired_cost`, `actual_cost`, `point_sway`, `public`) VALUES (2, 'Second One', 500, 456, 15, 1);
 
 COMMIT;
 

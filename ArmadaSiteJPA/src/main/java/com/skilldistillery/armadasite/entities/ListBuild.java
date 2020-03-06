@@ -33,6 +33,8 @@ public class ListBuild {
 	private int actualCost;
 	@Column(name = "point_sway")
 	private int pointSway;
+	@Column(name = "public")
+	private boolean pub;
 	
 	//RELATIONSHIPS
 	
@@ -54,7 +56,7 @@ public class ListBuild {
 		super();
 	}
 
-	public ListBuild(int id, String name, int desiredCost, int actualCost, int pointSway, List<ListFighter> fighters,
+	public ListBuild(int id, String name, int desiredCost, int actualCost, int pointSway, boolean pub, List<ListFighter> fighters,
 			List<ShipBuild> shipBuilds, List<User> users) {
 		super();
 		this.id = id;
@@ -65,10 +67,19 @@ public class ListBuild {
 		this.shipBuilds = shipBuilds;
 		this.users = users;
 		this.pointSway = pointSway;
+		this.pub = pub;
 	}
 
 
 	//METHODS
+	
+	public boolean getPublic() {
+		return pub;
+	}
+	
+	public void setPublic(boolean pub) {
+		this.pub = pub;
+	}
 
 	public int getId() {
 		return id;
